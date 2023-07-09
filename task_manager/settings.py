@@ -85,7 +85,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://NikolayZemelko:Ketaprofenoviy671@localhost:5432/taskManagerDb',
+        default='postgresql://postgres:postgres@localhost:5432/taskManagerDb',
         conn_max_age=600,
     )
 }
