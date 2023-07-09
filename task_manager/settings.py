@@ -85,7 +85,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/postgres',
+        default='postgres://nikolay_zemelko:lIWbTJysKd2asSKbumLq52havzP63X7v@dpg-cil88ktph6eg6kfj557g-a.oregon-postgres.render.com/taskmanagerdb_doed',
         conn_max_age=600,
     )
 }
