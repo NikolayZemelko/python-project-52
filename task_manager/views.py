@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.views import View
+from django.middleware import security
 
 
 class IndexView(View):
@@ -39,3 +40,45 @@ class UsersView(View):
         return render(request, 'users/index.html', context={
             'meta': meta,
         })
+
+
+class UsersCreateView(View):
+
+    def get(self, request, *args, **kwargs):
+        ...
+
+    def post(self, request, *args, **kwargs):
+        ...
+
+
+class UserUpdateView(View):
+
+    def get(self, request, *args, **kwargs):
+        ...
+
+    def post(self, request, *args, **kwargs):
+        ...
+
+
+class UserDeleteView(View):
+
+    def get(self, request, *args, **kwargs):
+        ...
+
+    def post(self, request, *args, **kwargs):
+        ...
+
+
+class LoginView(View):
+
+    def get(self, request, *args, **kwargs):
+        ...
+
+    def post(self, request, *args, **kwargs):
+        ...
+
+
+class LogoutView(View):
+
+    def post(self, request, *args, **kwargs):
+        ...
