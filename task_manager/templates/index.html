@@ -1,4 +1,15 @@
 {% extends 'layout.html' %}
-{% block greetings %}
-    <h3>{{ greeting }}</h3>
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4"></h1>
+    <h1 class="my-4"></h1>
+    <div class="card">
+        <div class="card-body p-5 bg-light">
+            <div class="display-4">{{ greetings }}</div>
+            <p class="lead">{{ courses_name }}</p>
+            <hr>
+            <a class="btn btn-primary btn-lg" href="https://ru.hexlet.io/">{{ about }}</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

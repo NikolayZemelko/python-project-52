@@ -19,7 +19,7 @@ class IndexView(View):
         about = _('Узнать больше')
         hexlet = _('Хекслет')
 
-        return render(request, 'layout.html', context={
+        return render(request, 'index.html', context={
             "title": title,
             "project_name": project_name,
             "users": users,
