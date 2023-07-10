@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
@@ -19,7 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -80,12 +81,13 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import dj_database_url
-
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://nikolay_zemelko:lIWbTJysKd2asSKbumLq52havzP63X7v@dpg-cil88ktph6eg6kfj557g-a.oregon-postgres.render.com/taskmanagerdb_doed',
+        default='postgres://nikolay_zemelko:'
+                'lIWbTJysKd2asSKbumLq52havzP63X7v@'
+                'dpg-cil88ktph6eg6kfj557g-a.oregon-postgres.render.com/'
+                'taskmanagerdb_doed',
         conn_max_age=600,
     )
 }
@@ -96,16 +98,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', # noqa E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', # noqa E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', # noqa E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', # noqa E501
     },
 ]
 
