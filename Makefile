@@ -1,5 +1,8 @@
 MANAGE := poetry run python3 manage.py
+POETRY := poetry run
 
+lint:
+	@$(POETRY) flake8 ./task_manager
 dev:
 	@$(MANAGE) runserver
 
