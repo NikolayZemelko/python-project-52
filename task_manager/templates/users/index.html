@@ -21,9 +21,9 @@
                     <td>{{ user.fullname }}</td>
                     <td>{{ user.date }}</td>
                     <td>
-                        <a href="{% url 'update-user' user.id %}">{{ meta.UpdateUser }}</a>
+                        <a href="{% url 'user-update' user.id %}">{{ meta.UpdateUser }}</a>
                         <br>
-                        <a href="{% url 'delete-user' user.id %}">{{ meta.DeleteUser }}</a>
+                        <a href="{% url 'user-delete' user.id %}">{{ meta.DeleteUser }}</a>
                     </td>
                 </tr>
             {% endfor %}
