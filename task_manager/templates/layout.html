@@ -19,15 +19,15 @@
     <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="https://python-task-manager-ru.hexlet.app/users/">{{ meta.Users }}</a>
+                <a class="nav-link" href="{% url 'users' %}">{{ meta.Users }}</a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="https://python-task-manager-ru.hexlet.app/login/">{{ meta.Enter }}</a>
+                <a class="nav-link" href="{% url 'login' %}">{{ meta.Enter }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://python-task-manager-ru.hexlet.app/users/create/">{{ meta.Registration }}</a>
+                <a class="nav-link" href="{% url 'users-create' %}">{{ meta.Registration }}</a>
             </li>
         </ul>
     </div>
