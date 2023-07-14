@@ -125,8 +125,14 @@ class LoginView(View):
         })
 
     def post(self, request, *args, **kwargs):
-        ...
 
+        form = SighInForm(request.POST)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            return
 
 class LogoutView(View):
 
