@@ -51,8 +51,11 @@ class UsersView(View):
 
     def get(self, request, *args, **kwargs):
 
+        users = User.objects.all()
+
         return render(request, 'users/index.html', context={
             'meta': get_meta(),
+            'users': users,
         })
 
 
