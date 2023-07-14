@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.translation import gettext as _
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from task_manager.forms import SignupForm, SighInForm
+from django.contrib.auth.models import User
+from django.conf import settings
 
 
 def get_meta():
@@ -30,12 +33,12 @@ def get_meta():
             PasswordApproval=_('Подтверждение пароля'),
             PasswordApprovalAgain=_('Для подтверждения введите, пожалуйста, пароль ещё раз.'),
             Register=_('Зарегистрировать'),
+            UpdateUser=_('Изменить'),
+            DeleteUser=_('Удалить'),
         )
 
 
 class IndexView(View):
-
-    # i18n fields naming
 
     def get(self, request, *args, **kwargs):
 
