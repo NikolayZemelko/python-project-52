@@ -67,7 +67,32 @@ class UsersCreateView(View):
         })
 
     def post(self, request, *args, **kwargs):
-        ...
+
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            username = form.clean_username()
+
+            if User.objects.filter(username=username):
+                messages.add_message(request, messages.ERROR,
+                                     'Пользователь с таким именем уже существует.')
+                return redirect('users-create', {
+                    'form': form,
+                })
+
+            else:
+
+                user = form.save(commit=False)
+                user.set_password(form.clean_password2())
+                user.save()
+                login(request, user)
+                messages.add_message(request, messages.SUCCESS,
+                                     'Пользователь успешно зарегистрирован')
+                return redirect(settings.LOGIN_REDIRECT_URL)
+
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'Неправильные значения, попробуйте снова.')
+            return redirect('users-create')
 
 
 class UserUpdateView(View):
