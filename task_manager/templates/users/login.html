@@ -1,21 +1,20 @@
-{% extends 'layout.html' %}
+{% extends 'index.html' %}
+
 {% block content %}
-<div class="container wrapper flex-grow-1">
-    <h1 class="my-4">{{ meta.Enter }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        <input type="hidden" name="csrfmiddlewaretoken"
-               value="iBunp6nmnKhdxNuxVhMRfhP2YCeiAWXKfmBFiPJeo1GjPuNI7TRJNDTGAfGVojEt">
-        <div class="mb-3">
-            <label class="form-label" for="id_username">{{ meta.UserName }}</label>
-            <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150"
-                   class="form-control" placeholder="{{ meta.UserName }}" required id="id_username">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="id_password">{{ meta.Password }}</label>
-            <input type="password" name="password" autocomplete="current-password" class="form-control" placeholder="{{ meta.Password }}" required="" id="id_password">
-        </div>
-        <input class="btn btn-primary" type="submit" value="{{ meta.Enter }}">
-    </form>
-</div>
+
+<h1 class="my-4">{{ meta.Enter }}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label" for="id_username">{{ meta.UserName }}</label>
+        <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150"
+               class="form-control" placeholder="{{ meta.UserName }}" required id="id_username">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="id_password">{{ meta.Password }}</label>
+        <input type="password" name="password" autocomplete="current-password" class="form-control" placeholder="{{ meta.Password }}" required="" id="id_password">
+    </div>
+    <input class="btn btn-primary" type="submit" value="{{ meta.Enter }}">
+</form>
+
 {% endblock %}

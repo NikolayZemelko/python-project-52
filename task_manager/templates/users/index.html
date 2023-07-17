@@ -1,34 +1,32 @@
-{% extends 'layout.html' %}
+{% extends 'index.html' %}
 {% block content %}
-<div class="container wrapper flex-grow-1">
-    <h1 class="my-4">{{ meta.Users }}</h1>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>{{ meta.Id }}</th>
-            <th>{{ meta.UserName }}</th>
-            <th>{{ meta.FullName }}</th>
-            <th>{{ meta.DateOfCreate }}</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {% if users %}
-            {% for user in users %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.first_name }} {{ user.last_name }}</td>
-                    <td>{{ user.date_joined }}</td>
-                    <td>
-                        <a href="{% url 'user-update' user.id %}">{{ meta.UpdateUser }}</a>
-                        <br>
-                        <a href="{% url 'user-delete' user.id %}">{{ meta.DeleteUser }}</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        {% endif %}
-        </tbody>
-    </table>
-</div>
+<h1 class="my-4">{{ meta.Users }}</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{ meta.Id }}</th>
+        <th>{{ meta.UserName }}</th>
+        <th>{{ meta.FullName }}</th>
+        <th>{{ meta.DateOfCreate }}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if users %}
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>
+                    <a href="{% url 'user-update' user.id %}">{{ meta.UpdateUser }}</a>
+                    <br>
+                    <a href="{% url 'user-delete' user.id %}">{{ meta.DeleteUser }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
 {% endblock %}
