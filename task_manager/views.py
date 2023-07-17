@@ -123,24 +123,27 @@ class UserDeleteView(View):
         ...
 
 
-class LoginView(View):
+class MyLoginView(LoginView):
 
-    def get(self, request, *args, **kwargs):
-        return render(request, 'users/login.html', context={
-            'meta': get_meta(),
-        })
+    template_name = 'users/login.html'
+    next_page = reverse_lazy('index')
+
+    extra_context = {
+        'meta': get_meta(),
+    }
+
+    def form_valid(self, form):
+        messages.success(self.request, _('Вы залогинены'))
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, _('Ошибка входа.'))
+        return super().form_invalid(form)
+
+
+class MyLogoutView(LogoutView):
 
     def post(self, request, *args, **kwargs):
-
-        form = SighInForm(request.POST)
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-        user = authenticate(request, username=username, password=password)
-
-        if user:
-            return
-
-class LogoutView(View):
-
-    def post(self, request, *args, **kwargs):
-        ...
+        logout(request)
+        messages.info(self.request, _('Вы разлогинены'))
+        return redirect('index')
