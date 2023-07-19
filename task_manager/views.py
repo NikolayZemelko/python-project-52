@@ -1,13 +1,15 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext as _
 from django.views import View
+from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth import login, logout
 from django.contrib import messages
-from task_manager.forms import SignupForm
 from django.contrib.auth.models import User
-from django.conf import settings
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic import CreateView
+from task_manager.forms import SignupForm
 
 
 def get_meta():
@@ -16,13 +18,15 @@ def get_meta():
             Title=_('Менеджер задач Hexlet'),
             Project_name=_('Менеджер задач'),
             Users=_('Пользователи'),
-            Enter=_('Вход'),
+            EnterHeader=_('Вход'),
+            Entering=_('Войти'),
             LogOut=_('Выход'),
             Registration=_('Регистрация'),
+            Updating=_('Изменение пользователя'),
             Greetings=_('Привет от Хекслета!'),
             Courses_name=_('Практические курсы по программированию'),
             About=_('Узнать больше'),
-            Hexlet=_('Хекслет'),
+            Hexlet=_('Hexlet'),
             Id=_('ID'),
             UserName=_('Имя пользователя'),
             FullName=_('Полное имя'),
@@ -38,6 +42,8 @@ def get_meta():
             Register=_('Зарегистрировать'),
             UpdateUser=_('Изменить'),
             DeleteUser=_('Удалить'),
+            DeletingUser=_('Удаление пользователя'),
+            DeletingApproving=_('Вы уверены, что хотите удалить'),
             Statuses=_('Статусы'),
             Labels=_('Метки'),
             Tasks=_('Задачи'),
