@@ -71,34 +71,18 @@ class UsersView(View):
         })
 
 
-class UsersCreateView(View):
+class UsersCreateView(SuccessMessageMixin, CreateView):
 
-    def get(self, request, *args, **kwargs):
-        return render(request, 'users/create.html', context={
-            'meta': get_meta(),
-        })
+    form_class = SignupForm
+    template_name = 'users/create.html'
 
-    def post(self, request, *args, **kwargs):
+    extra_context = {
+        'meta': get_meta(),
+    }
 
-        form = SignupForm(request.POST)
+    success_url = reverse_lazy('login')
+    success_message = _('User has been registered successfully!')
 
-        if form.is_valid():
-            username = form.clean_username()
-
-            if User.objects.filter(username=username):
-                messages.add_message(request, messages.ERROR,
-                                     _('Пользователь с таким именем уже существует.'))
-                return redirect('users-create', {
-                    'form': form,
-                })
-
-            else:
-
-                user = form.save()
-                login(request, user)
-                messages.add_message(request, messages.SUCCESS,
-                                     _('Пользователь успешно зарегистрирован'))
-                return redirect(settings.LOGIN_REDIRECT_URL)
 
         else:
             messages.add_message(request, messages.ERROR,
