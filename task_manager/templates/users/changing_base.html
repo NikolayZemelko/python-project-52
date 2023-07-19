@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'index.html' %}
+{% load django_bootstrap5 %}
 
-</body>
-</html>
+{% block content %}
+
+    {% block type_of_changing %}{% endblock %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_label meta.Name %}
+        {% bootstrap_field form.username show_label=False placeholder=meta.Name %}
+        {% bootstrap_label meta.LastName %}
+        {% bootstrap_field form.last_name show_label=False placeholder=meta.LastName %}
+        {% bootstrap_label meta.UserName %}
+        {% bootstrap_field form.username show_label=False placeholder=meta.UserName %}
+        {% bootstrap_label meta.Password %}
+        {% bootstrap_field form.password1 show_label=False placeholder=meta.Password %}
+        {% bootstrap_label meta.PasswordApproval %}
+        {% bootstrap_field form.password2 show_label=False placeholder=meta.PasswordApproval %}
+        {% bootstrap_button meta.Entering button_type="submit" button_class="btn btn-primary" %}
+
+    </form>
+
+{% endblock %}

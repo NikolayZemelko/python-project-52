@@ -1,41 +1,7 @@
-{% extends 'index.html' %}
-{% block content %}
-<h1 class="my-4">{{ meta.Registration }}</h1>
-<form method="post">
-    {% csrf_token %}
-    <div class="mb-3">
-        <label class="form-label" for="id_first_name">{{ meta.Name }}</label>
-        <input type="text" name="first_name" maxlength="150" class="form-control" placeholder="{{ meta.Name }}"
-               required id="id_first_name">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="id_last_name">{{ meta.LastName }}</label>
-        <input type="text" name="last_name" maxlength="150" class="form-control" placeholder="{{ meta.LastName }}"
-               required id="id_last_name">
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="id_username">{{ meta.UserName }}</label>
-        <input type="text" name="username" maxlength="150" autofocus class="form-control"
-               placeholder="{{ meta.UserName }}" required id="id_username">
-        <div class="invalid-feedback">{{ errors }}</div>
-        <div class="form-text">{{ meta.RequirmentField }} @/./+/-/_.</div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="id_password1">{{ meta.Password }}</label>
-        <input type="password" name="password1" autocomplete="new-password" class="form-control"
-               placeholder="{{ meta.Password }}" required id="id_password1">
-        <div class="form-text">
-            <ul>
-                <li>{{ meta.PasswordRequirment }}</li>
-            </ul>
-        </div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="id_password2">{{ meta.PasswordApproval }}</label>
-        <input type="password" name="password2" autocomplete="new-password" class="form-control"
-            placeholder="{{ meta.PasswordApproval }}" required id="id_password2">
-        <div class="form-text">{{ meta.PasswordApprovalAgain }}</div>
-    </div>
-    <input class="btn btn-primary" type="submit" value="{{ meta.Register }}">
-</form>
+{% extends 'users/changing_base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block type_of_changing %}
+    <h1 class="my-4">{{ meta.Registration }}</h1>
 {% endblock %}
