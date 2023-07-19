@@ -84,29 +84,28 @@ class UsersCreateView(SuccessMessageMixin, CreateView):
     success_message = _('User has been registered successfully!')
 
 
-        else:
-            messages.add_message(request, messages.ERROR,
-                                 _('Неправильные значения, попробуйте снова.'))
-
-            return redirect('users-create')
-
-
-class UserUpdateView(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, 'user/update.html', context={
-            'meta': get_meta(),
-        })
-
-    def post(self, request, *args, **kwargs):
-        ...
+class UserUpdateView(UpdateView):
+    model = User
+    fields = ['first_name', 'last_name', 'username']
+    template_name_suffix = 'users/update.html'
 
 
-class UserDeleteView(View):
+class UserDeleteView(DeleteView):
+
+    model = User
+    success_url = 'login'
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'user/delete.html', context={
-            'meta': get_meta(),
+
+        user = User.objects.get(id=kwargs['pk'])
+        username = user.username
+
+        meta = dict(get_meta())
+        deleting_user = meta.get('DeletingApproving')
+        meta['DeletingApproving'] = _(f'{deleting_user} {username}?')
+
+        return render(request, 'users/delete.html', context={
+            'meta': meta,
         })
 
     def post(self, request, *args, **kwargs):
@@ -127,7 +126,6 @@ class MyLoginView(LoginView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, _('Ошибка входа.'))
         return super().form_invalid(form)
 
 
