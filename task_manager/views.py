@@ -136,7 +136,7 @@ class MyLoginView(LoginView):
     }
 
     def form_valid(self, form):
-        messages.success(self.request, _('Вы залогинены'))
+        messages.success(self.request, message=get_meta().get('YouAreLogIn'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -147,5 +147,5 @@ class MyLogoutView(LogoutView):
 
     def post(self, request, *args, **kwargs):
         logout(request)
-        messages.info(self.request, _('Вы разлогинены'))
+        messages.info(self.request, message=get_meta().get('YouAreLogOut'))
         return redirect('index')
