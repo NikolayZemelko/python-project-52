@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
+{% load django_bootstrap5 %}
 {% block log_In_or_Out %}
     <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'users' %}">{% translate meta.Users %}</a>
+                <a class="nav-link" href="{% url 'users' %}">{{ meta.Users }}</a>
             </li>
         </ul>
 
@@ -13,19 +13,19 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/statuses/">{% translate meta.Statuses %}</a>
+                  <a class="nav-link" href="/statuses/">{{ meta.Statuses }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/labels/">{% translate meta.Labels %}</a>
+                  <a class="nav-link" href="/labels/">{{ meta.Labels }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/tasks/">{% translate meta.Tasks %}</a>
+                  <a class="nav-link" href="/tasks/">{{ meta.Tasks }}</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <form action="{% url 'logout' %}" method="post">
                       {% csrf_token %}
-                      <input class="btn nav-link" type="submit" value={% translate meta.LogOut %}>
+                      <input class="btn nav-link" type="submit" value={{ meta.LogOut }}>
                 </form>
             </ul>
 
@@ -33,10 +33,10 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">{% translate meta.EnterHeader %}</a>
+                    <a class="nav-link" href="{% url 'login' %}">{{ meta.EnterHeader }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users-create' %}">{% translate meta.Registration %}</a>
+                    <a class="nav-link" href="{% url 'users-create' %}">{{ meta.Registration }}</a>
                 </li>
             </ul>
 
@@ -52,10 +52,10 @@
 <h1 class="my-4"></h1>
 <div class="card">
     <div class="card-body p-5 bg-light">
-        <div class="display-4">{% translate meta.Greetings %}</div>
-        <p class="lead">{% translate meta.Courses_name %}</p>
+        <div class="display-4">{{ meta.Greetings }}</div>
+        <p class="lead">{{ meta.Courses_name }}</p>
         <hr>
-        <a class="btn btn-primary btn-lg" href="https://ru.hexlet.io/">{% translate meta.About %}</a>
+        <a class="btn btn-primary btn-lg" href="https://ru.hexlet.io/">{{ meta.About }} </a>
     </div>
 </div>
 
