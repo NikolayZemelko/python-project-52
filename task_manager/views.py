@@ -57,25 +57,22 @@ def get_meta():
         )
 
 
-class IndexView(View):
+class IndexView(TemplateView):
 
-    def get(self, request, *args, **kwargs):
+    template_name = "index.html"
+    extra_context = {
+        'meta': get_meta(),
+    }
 
-        return render(request, 'index.html', context={
-            'meta': get_meta(),
-        })
 
+class UsersView(ListView):
 
-class UsersView(View):
-
-    def get(self, request, *args, **kwargs):
-
-        users = User.objects.all()
-
-        return render(request, 'users/index.html', context={
-            'meta': get_meta(),
-            'users': users,
-        })
+    template_name = "users/index.html"
+    model = User
+    context_object_name = 'users'
+    extra_context = {
+        'meta': get_meta(),
+    }
 
 
 class UsersCreateView(SuccessMessageMixin, CreateView):
