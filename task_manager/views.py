@@ -85,13 +85,22 @@ class UsersCreateView(SuccessMessageMixin, CreateView):
     }
 
     success_url = reverse_lazy('login')
-    success_message = _('User has been registered successfully!')
+    success_message = get_meta().get('RegisteredSuccessfully')
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(SuccessMessageMixin,
+                     LoginRequiredMixin, UpdateView):
+
+    template_name = 'users/update.html'
     model = User
-    fields = ['first_name', 'last_name', 'username']
-    template_name_suffix = 'users/update.html'
+    form_class = SignupForm
+    login_url = reverse_lazy('login')
+    success_url = reverse_lazy('users')
+    success_message = _('User is successfully updated')
+    permission_denied_message = get_meta().get('NotAuthorised')
+    extra_context = {
+        'meta': get_meta(),
+    }
 
 
 class UserDeleteView(DeleteView):
