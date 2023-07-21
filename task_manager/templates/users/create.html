@@ -5,3 +5,7 @@
 {% block type_of_changing %}
     <h1 class="my-4">{{ meta.Registration }}</h1>
 {% endblock %}
+
+{% block button %}
+    {% bootstrap_button meta.Register button_type="submit" button_class="btn btn-primary" %}
+{% endblock %}
