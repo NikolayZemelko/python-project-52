@@ -106,23 +106,24 @@ class UserUpdateView(SuccessMessageMixin,
 class UserDeleteView(DeleteView):
 
     model = User
-    success_url = 'login'
+    success_url = reverse_lazy('users')
 
     def get(self, request, *args, **kwargs):
 
-        user = User.objects.get(id=kwargs['pk'])
-        username = user.username
+        if not request.user.is_authenticated:
+            messages.error(self.request, message=get_meta().get('NotAuthorised'))
+            return redirect('login')
 
-        meta = dict(get_meta())
-        deleting_user = meta.get('DeletingApproving')
-        meta['DeletingApproving'] = _(f'{deleting_user} {username}?')
+        user = User.objects.get(id=kwargs['pk'])
 
         return render(request, 'users/delete.html', context={
-            'meta': meta,
+            'meta': get_meta(),
+            'user': user,
         })
 
-    def post(self, request, *args, **kwargs):
-        ...
+    def form_valid(self, form):
+        messages.success(self.request, message=get_meta().get('DeletedSuccessfully'))
+        return super().form_valid(form)
 
 
 class MyLoginView(LoginView):
