@@ -1,0 +1,32 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "marganezz",
+      "first_name": "Frederic",
+      "last_name": "Baum",
+      "password": "Heruvim1566"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "neko",
+      "first_name": "Nikolay",
+      "last_name": "Zemelko",
+      "password": "Kola1989"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "Chervon",
+      "first_name": "Adam",
+      "last_name": "Shmidt",
+      "password": "Hersonium13029"
+    }
+  }
+]
