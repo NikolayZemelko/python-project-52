@@ -82,17 +82,15 @@ class MyLoginView(SuccessMessageMixin, LoginView):
         'meta': get_meta(),
     }
 
-    def form_valid(self, form):
-        messages.success(self.request, message=get_meta().get('YouAreLogIn'))
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        return super().form_invalid(form)
-
 
 class MyLogoutView(LogoutView):
 
-    def post(self, request, *args, **kwargs):
-        logout(request)
-        messages.info(self.request, message=get_meta().get('YouAreLogOut'))
-        return redirect('index')
+    next_page = reverse_lazy('index')
+    success_message = get_meta().get('YouAreLogOut')
+    extra_context = {
+        'meta': get_meta(),
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, message=self.success_message)
+        return super().dispatch(request, *args, **kwargs)
