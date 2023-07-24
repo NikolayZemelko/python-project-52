@@ -57,27 +57,19 @@ class UserUpdateView(SuccessMessageMixin, AuthRequiredMixin,
     }
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(SuccessMessageMixin, AuthRequiredMixin,
+                     UserPermissionMixin, DeleteProtectedMixin, DeleteView):
 
+    template_name = 'users/delete.html'
     model = User
     success_url = reverse_lazy('users')
-
-    def get(self, request, *args, **kwargs):
-
-        if not request.user.is_authenticated:
-            messages.error(self.request, message=get_meta().get('NotAuthorised'))
-            return redirect('login')
-
-        user = User.objects.get(id=kwargs['pk'])
-
-        return render(request, 'users/delete.html', context={
-            'meta': get_meta(),
-            'user': user,
-        })
-
-    def form_valid(self, form):
-        messages.success(self.request, message=get_meta().get('DeletedSuccessfully'))
-        return super().form_valid(form)
+    success_message = get_meta().get('DeletedSuccessfully')
+    permission_denied_message = get_meta().get('NoUpdatingRight')
+    permission_url = reverse_lazy('users')
+    protected_url = reverse_lazy('users')
+    extra_context = {
+        'meta': get_meta(),
+    }
 
 
 class MyLoginView(LoginView):
