@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 13:09+0300\n"
+"POT-Creation-Date: 2023-07-24 13:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,162 +20,169 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: settings.py:124
-msgid "Russian"
-msgstr "Русский"
-
-#: settings.py:125
-msgid "English"
-msgstr "Английский"
-
-#: views.py:17
+#: meta.py:7
 msgid "Hexlet Task Manager"
-msgstr ""
+msgstr "Менеджер задач Hexlet"
 
-#: views.py:18
+#: meta.py:8
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: views.py:19
+#: meta.py:9
 msgid "Users"
 msgstr "Пользователи"
 
-#: views.py:20
+#: meta.py:10
 msgid "Log in"
 msgstr "Вход"
 
-#: views.py:21
+#: meta.py:11
 msgid "Sigh in"
 msgstr "Регистрация"
 
-#: views.py:22
+#: meta.py:12
 msgid "Log Out"
 msgstr "Выход"
 
-#: views.py:23
+#: meta.py:13
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: views.py:24
+#: meta.py:14
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: views.py:25
+#: meta.py:15
 msgid "Registration"
 msgstr "Регистрация"
 
-#: views.py:26
+#: meta.py:16
 msgid "User has been registered successfully!"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: views.py:27
+#: meta.py:17
+msgid "User has been updated successfully!"
+msgstr "Пользователь успешно изменён"
+
+#: meta.py:18
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удалён"
 
-#: views.py:28
+#: meta.py:19
+msgid "You do not have rights to change another user."
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: meta.py:20
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: views.py:29
+#: meta.py:21
 msgid "You are not authorized! Please sign in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: views.py:30
+#: meta.py:22
 msgid "Change user"
 msgstr "Изменение пользователя"
 
-#: views.py:31
+#: meta.py:23
 msgid "Hello from Hexlet!"
 msgstr "Привет от Хекслета!"
 
-#: views.py:32
+#: meta.py:24
 msgid "Practical programming courses"
 msgstr "Практические курсы по программированию"
 
-#: views.py:33
+#: meta.py:25
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: views.py:34
+#: meta.py:26
 msgid "Hexlet"
 msgstr "Hexlet"
 
-#: views.py:35
+#: meta.py:27
 msgid "ID"
 msgstr "ID"
 
-#: views.py:36
+#: meta.py:28
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: views.py:37
+#: meta.py:29
 msgid "Fullname"
 msgstr "Полное имя"
 
-#: views.py:38
+#: meta.py:30
 msgid "Date of creation"
 msgstr "Дата создания"
 
-#: views.py:39
+#: meta.py:31
 msgid "Firstname"
 msgstr "Имя"
 
-#: views.py:40
+#: meta.py:32
 msgid "Lastname"
 msgstr "Фамилия"
 
-#: views.py:41
+#: meta.py:33
 msgid ""
 "Obligatory field. No more than 150 characters. Only letters, numbers and "
 "symbols"
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы "
 
-#: views.py:43
+#: meta.py:35
 msgid "Password"
 msgstr "Пароль"
 
-#: views.py:44
+#: meta.py:36
 msgid "Your password must contain at least 3 characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: views.py:45
+#: meta.py:37
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: views.py:46
+#: meta.py:38
 msgid "To confirm, please enter your password again."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
-#: views.py:47
+#: meta.py:39
 msgid "Register"
 msgstr "Зарегистрировать"
 
-#: views.py:48
+#: meta.py:40
 msgid "Change"
 msgstr "Изменить"
 
-#: views.py:49
+#: meta.py:41
 msgid "Delete"
 msgstr "Удалить"
 
-#: views.py:50
+#: meta.py:42
 msgid "Deleting a user"
 msgstr "Удаление пользователя"
 
-#: views.py:51
+#: meta.py:43
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: views.py:52
+#: meta.py:44
 msgid "Statuses"
 msgstr "Статусы"
 
-#: views.py:53
+#: meta.py:45
 msgid "Labels"
 msgstr "Метки"
 
-#: views.py:54
+#: meta.py:46
 msgid "Tasks"
 msgstr "Задачи"
 
+#: settings.py:132
+msgid "Russian"
+msgstr "Русский"
+
+#: settings.py:133
+msgid "English"
+msgstr "Английский"

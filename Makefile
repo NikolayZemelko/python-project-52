@@ -3,8 +3,9 @@ POETRY := poetry run
 
 lint:
 	@$(POETRY) flake8 ./task_manager
+
 dev:
-	@$(MANAGE) runserver
+	@$(MANAGE) runserver --settings=task_manager.settings_dev
 
 migrations:
 	@$(MANAGE) makemigrations
@@ -13,4 +14,4 @@ migrate:
 	@$(MANAGE) migrate
 
 start:
-	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) page_analyzer.app:app
+	@$(MANAGE) runserver
