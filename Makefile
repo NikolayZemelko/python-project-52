@@ -4,6 +4,9 @@ POETRY := poetry run
 lint:
 	@$(POETRY) flake8 ./task_manager
 
+tests:
+	@$(MANAGE) test
+
 dev:
 	@$(MANAGE) runserver --settings=task_manager.settings_dev
 
