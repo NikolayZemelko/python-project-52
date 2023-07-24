@@ -16,7 +16,8 @@ def get_meta():
             RegisteredSuccessfully=_('User has been registered successfully!'),
             UpdatingSuccessfully=_('User has been updated successfully!'),
             DeletedSuccessfully=_("User deleted successfully"),
-            NoUpdatingRight=_('You do not have rights to change another user.'),
+            NoUpdatingRight=_('You do not have rights '
+                              'to change another user.'),
             DeleteButton=_('Yes, delete'),
             NotAuthorised=_("You are not authorized! Please sign in."),
             Updating=_('Change user'),
@@ -33,9 +34,11 @@ def get_meta():
             RequirmentField=_('Obligatory field. No more than 150 characters. '
                               'Only letters, numbers and symbols'),
             Password=_('Password'),
-            PasswordRequirment=_('Your password must contain at least 3 characters.'),
+            PasswordRequirment=_('Your password must contain '
+                                 'at least 3 characters.'),
             PasswordApproval=_('Password confirmation'),
-            PasswordApprovalAgain=_('To confirm, please enter your password again.'),
+            PasswordApprovalAgain=_('To confirm, please enter '
+                                    'your password again.'),
             Register=_('Register'),
             UpdateUser=_('Change'),
             DeleteUser=_('Delete'),

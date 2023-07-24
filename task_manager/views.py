@@ -7,7 +7,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from task_manager.forms import SignupForm
-from task_manager.mixins import UserPermissionMixin, AuthRequiredMixin, DeleteProtectedMixin
+from task_manager.mixins import UserPermissionMixin, \
+    AuthRequiredMixin, DeleteProtectedMixin
 
 
 class IndexView(TemplateView):
