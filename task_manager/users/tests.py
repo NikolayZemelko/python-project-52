@@ -29,7 +29,7 @@ class UsersTestCase(UserBaseTestCase):
             'password2': self.user1.password,
         })
 
-        response = self.client.get(reverse_lazy('users'))
+        response = self.client.get(reverse_lazy('users-index'))
         users = response.context['users']
         user = users.get(username='marganezz')
 
@@ -58,7 +58,7 @@ class UsersTestCase(UserBaseTestCase):
                              'password2': 'Kola1989'
                          })
 
-        response = self.client.get(reverse_lazy('users'))
+        response = self.client.get(reverse_lazy('users-index'))
         users = response.context['users']
 
         user = users.get(username='neko666')
@@ -77,13 +77,13 @@ class UsersTestCase(UserBaseTestCase):
             'password2': self.user3.password,
         })
 
-        users = self.client.get(reverse_lazy('users')).context['users']
+        users = self.client.get(reverse_lazy('users-index')).context['users']
 
         self.assertEqual(self.count, users.all().count())
 
         self.client.force_login(self.user3)
         self.client.post(reverse_lazy('user-delete', kwargs={'pk': 3}))
 
-        users = self.client.get(reverse_lazy('users')).context['users']
+        users = self.client.get(reverse_lazy('users-index')).context['users']
 
         self.assertEqual(2, users.all().count())

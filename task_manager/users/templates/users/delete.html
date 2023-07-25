@@ -3,12 +3,11 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-    <h1 class="my-4">
-        {{ meta.DeletingUser }}
-    </h1>
+    <h1 class="my-4">{{ meta.DeletingUser }}</h1>
     <p>{{ meta.DeletingApproving }} {{ user.first_name }} {{ user.last_name }}?</p>
+
     <form method="post">
         {% csrf_token %}
-        <input class="btn btn-danger" type="submit" value="{{ meta.DeleteButton }}">
+        {% bootstrap_button meta.DeleteButton button_type="submit" button_class="btn btn-danger" %}
     </form>
 {% endblock %}
