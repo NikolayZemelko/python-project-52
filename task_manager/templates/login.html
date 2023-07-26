@@ -1,17 +1,18 @@
 {% extends 'index.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load task_manager_tags %}
 {% block content %}
 
-<h1 class="my-4">{{ meta.EnterHeader }}</h1>
+<h1 class="my-4">{{ meta.Main.EnterHeader }}</h1>
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form_errors form %}
-        {% bootstrap_label meta.UserName %}
-        {% bootstrap_field form.username show_label=False placeholder=meta.UserName %}
-        {% bootstrap_label meta.Password %}
-        {% bootstrap_field form.password show_label=False placeholder=meta.Password %}
-        {% bootstrap_button meta.Entering button_type="submit" button_class="btn btn-primary" %}
+        {% bootstrap_label meta.Users.UserName %}
+        {% bootstrap_field form.username show_label=False placeholder=meta.Users.UserName %}
+        {% bootstrap_label meta.Users.Password %}
+        {% bootstrap_field form.password show_label=False placeholder=meta.Users.Password %}
+        {% bootstrap_button meta.Main.Entering button_type="submit" button_class="btn btn-primary" %}
     </form>
 
 {% endblock %}
