@@ -3,9 +3,9 @@
 {% load django_bootstrap5 %}
 
 {% block type_of_changing %}
-    <h1 class="my-4">{{ meta.Registration }}</h1>
+    <h1 class="my-4">{{ meta.Main.Registration }}</h1>
 {% endblock %}
 
 {% block button %}
-    {% bootstrap_button meta.Register button_type="submit" button_class="btn btn-primary" %}
+    {% bootstrap_button meta.Main.Register button_type="submit" button_class="btn btn-primary" %}
 {% endblock %}

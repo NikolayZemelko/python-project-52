@@ -8,16 +8,16 @@
 
     <form method="post">
         {% csrf_token %}
-        {% bootstrap_label meta.FirstName %}
-        {% bootstrap_field form.first_name show_label=False placeholder=meta.FirstName %}
-        {% bootstrap_label meta.LastName %}
-        {% bootstrap_field form.last_name show_label=False placeholder=meta.LastName %}
-        {% bootstrap_label meta.UserName %}
-        {% bootstrap_field form.username show_label=False placeholder=meta.UserName %}
-        {% bootstrap_label meta.Password %}
-        {% bootstrap_field form.password1 show_label=False placeholder=meta.Password %}
-        {% bootstrap_label meta.PasswordApproval %}
-        {% bootstrap_field form.password2 show_label=False placeholder=meta.PasswordApproval %}
+        {% bootstrap_label meta.Users.FirstName %}
+        {% bootstrap_field form.first_name show_label=False placeholder=meta.Users.FirstName %}
+        {% bootstrap_label meta.Users.LastName %}
+        {% bootstrap_field form.last_name show_label=False placeholder=meta.Users.LastName %}
+        {% bootstrap_label meta.Users.UserName %}
+        {% bootstrap_field form.username show_label=False placeholder=meta.Users.UserName %}
+        {% bootstrap_label meta.Users.Password %}
+        {% bootstrap_field form.password1 show_label=False placeholder=meta.Users.Password %}
+        {% bootstrap_label meta.Users.PasswordApproval %}
+        {% bootstrap_field form.password2 show_label=False placeholder=meta.Users.PasswordApproval %}
 
         {% block button %}{% endblock %}
 

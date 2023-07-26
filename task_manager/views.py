@@ -18,7 +18,7 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 
     template_name = 'login.html'
     next_page = reverse_lazy('index')
-    success_message = get_meta().get('YouAreLogIn')
+    success_message = get_meta().get('Users').get('YouAreLogIn')
 
     extra_context = {
         'meta': get_meta(),
@@ -28,7 +28,7 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 class MyLogoutView(LogoutView):
 
     next_page = reverse_lazy('index')
-    success_message = get_meta().get('YouAreLogOut')
+    success_message = get_meta().get('Users').get('YouAreLogOut')
     extra_context = {
         'meta': get_meta(),
     }

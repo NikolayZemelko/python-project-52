@@ -1,15 +1,16 @@
 {% extends 'index.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load task_manager_tags %}
 {% block content %}
-<h1 class="my-4">{{ meta.Users }}</h1>
+<h1 class="my-4">{{ meta.Main.Users }}</h1>
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>{{ meta.Id }}</th>
-        <th>{{ meta.UserName }}</th>
-        <th>{{ meta.FullName }}</th>
-        <th>{{ meta.DateOfCreate }}</th>
+        <th>{{ meta.Main.Id }}</th>
+        <th>{{ meta.Users.UserName }}</th>
+        <th>{{ meta.Users.FullName }}</th>
+        <th>{{ meta.Main.DateOfCreate }}</th>
         <th></th>
     </tr>
     </thead>
@@ -20,11 +21,11 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
-                <td>{{ user.date_joined }}</td>
+                <td>{% date_format user.date_joined %}</td>
                 <td>
-                    <a href="{% url 'user-update' user.id %}">{{ meta.UpdateUser }}</a>
+                    <a href="{% url 'user-update' user.id %}">{{ meta.Main.Update }}</a>
                     <br>
-                    <a href="{% url 'user-delete' user.id %}">{{ meta.DeleteUser }}</a>
+                    <a href="{% url 'user-delete' user.id %}">{{ meta.Main.Delete }}</a>
                 </td>
             </tr>
         {% endfor %}

@@ -28,7 +28,7 @@ class UsersCreateView(SuccessMessageMixin, CreateView):
     }
 
     success_url = reverse_lazy('login')
-    success_message = get_meta().get('RegisteredSuccessfully')
+    success_message = get_meta().get('Users').get('RegisteredSuccess')
 
 
 class UserUpdateView(SuccessMessageMixin, AuthRequiredMixin,
@@ -38,8 +38,8 @@ class UserUpdateView(SuccessMessageMixin, AuthRequiredMixin,
     model = User
     form_class = SignupForm
     success_url = reverse_lazy('users-index')
-    success_message = get_meta().get('UpdatingSuccessfully')
-    permission_denied_message = get_meta().get('NoUpdatingRight')
+    success_message = get_meta().get('Users').get('UpdatingSuccess')
+    permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
     permission_url = reverse_lazy('users-index')
 
     extra_context = {
@@ -53,8 +53,8 @@ class UserDeleteView(SuccessMessageMixin, AuthRequiredMixin,
     template_name = 'users/delete.html'
     model = User
     success_url = reverse_lazy('users-index')
-    success_message = get_meta().get('DeletedSuccessfully')
-    permission_denied_message = get_meta().get('NoUpdatingRight')
+    success_message = get_meta().get('Users').get('DeletedSuccess')
+    permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
     permission_url = reverse_lazy('users-index')
     protected_url = reverse_lazy('users-index')
     extra_context = {
