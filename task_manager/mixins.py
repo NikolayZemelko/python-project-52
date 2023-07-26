@@ -8,7 +8,7 @@ from .meta import get_meta
 
 class UserPermissionMixin(UserPassesTestMixin):
 
-    permission_denied_message = get_meta().get('NoUpdatingRight')
+    permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
     permission_url = None
 
     def test_func(self):
@@ -21,7 +21,7 @@ class UserPermissionMixin(UserPassesTestMixin):
 
 class AuthRequiredMixin(LoginRequiredMixin):
 
-    auth_message = get_meta().get('NotAuthorised')
+    auth_message = get_meta().get('Users').get('NotAuthorised')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
