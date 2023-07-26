@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 13:36+0300\n"
+"POT-Creation-Date: 2023-07-26 14:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,69 +20,61 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: meta.py:7
+#: meta.py:8
 msgid "Hexlet Task Manager"
 msgstr "Менеджер задач Hexlet"
 
-#: meta.py:8
+#: meta.py:9
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: meta.py:9
+#: meta.py:10
 msgid "Users"
 msgstr "Пользователи"
 
-#: meta.py:10
+#: meta.py:11
+msgid "Statuses"
+msgstr "Статусы"
+
+#: meta.py:12
+msgid "Labels"
+msgstr "Метки"
+
+#: meta.py:13
+msgid "Tasks"
+msgstr "Задачи"
+
+#: meta.py:14
 msgid "Log in"
 msgstr "Вход"
 
-#: meta.py:11
+#: meta.py:15
 msgid "Sigh in"
 msgstr "Регистрация"
 
-#: meta.py:12
+#: meta.py:16
 msgid "Log Out"
 msgstr "Выход"
 
-#: meta.py:13
-msgid "You are logged in"
-msgstr "Вы залогинены"
-
-#: meta.py:14
-msgid "You are logged out"
-msgstr "Вы разлогинены"
-
-#: meta.py:15
+#: meta.py:17
 msgid "Registration"
 msgstr "Регистрация"
 
-#: meta.py:16
-msgid "User has been registered successfully!"
-msgstr "Пользователь успешно зарегистрирован"
-
-#: meta.py:17
-msgid "User has been updated successfully!"
-msgstr "Пользователь успешно изменён"
-
 #: meta.py:18
-msgid "User deleted successfully"
-msgstr "Пользователь успешно удалён"
+msgid "Register"
+msgstr "Зарегистрировать"
 
 #: meta.py:19
 msgid "You do not have rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: meta.py:20
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
 #: meta.py:21
-msgid "You are not authorized! Please sign in."
-msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+msgid "Create"
+msgstr "Создать"
 
 #: meta.py:22
-msgid "Change user"
-msgstr "Изменение пользователя"
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: meta.py:23
 msgid "Hello from Hexlet!"
@@ -105,84 +97,124 @@ msgid "ID"
 msgstr "ID"
 
 #: meta.py:28
-msgid "Username"
-msgstr "Имя пользователя"
+msgid "Name"
+msgstr "Имя"
 
 #: meta.py:29
-msgid "Fullname"
-msgstr "Полное имя"
-
-#: meta.py:30
 msgid "Date of creation"
 msgstr "Дата создания"
 
-#: meta.py:31
-msgid "Firstname"
-msgstr "Имя"
-
-#: meta.py:32
-msgid "Lastname"
-msgstr "Фамилия"
-
-#: meta.py:33
+#: meta.py:30
 msgid ""
 "Obligatory field. No more than 150 characters. Only letters, numbers and "
 "symbols"
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы "
 
-#: meta.py:35
-msgid "Password"
-msgstr "Пароль"
-
-#: meta.py:36
-msgid "Your password must contain at least 3 characters."
-msgstr "Ваш пароль должен содержать как минимум 3 символа."
-
-#: meta.py:37
-msgid "Password confirmation"
-msgstr "Подтверждение пароля"
-
-#: meta.py:38
-msgid "To confirm, please enter your password again."
-msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
-
-#: meta.py:39
-msgid "Register"
-msgstr "Зарегистрировать"
-
-#: meta.py:40
-msgid "Change"
-msgstr "Изменить"
-
-#: meta.py:41
-msgid "Delete"
-msgstr "Удалить"
-
-#: meta.py:42
-msgid "Deleting a user"
-msgstr "Удаление пользователя"
-
-#: meta.py:43
+#: meta.py:32
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
+#: meta.py:33
+msgid "Change"
+msgstr "Изменить"
+
+#: meta.py:34
+msgid "Delete"
+msgstr "Удалить"
+
+#: meta.py:37
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: meta.py:38
+msgid "Fullname"
+msgstr "Полное имя"
+
+#: meta.py:39
+msgid "Firstname"
+msgstr "Имя"
+
+#: meta.py:40
+msgid "Lastname"
+msgstr "Фамилия"
+
+#: meta.py:41
+msgid "Change user"
+msgstr "Изменение пользователя"
+
+#: meta.py:42
+msgid "User has been registered successfully!"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: meta.py:43
+msgid "User has been updated successfully!"
+msgstr "Пользователь успешно изменён"
+
 #: meta.py:44
-msgid "Statuses"
-msgstr "Статусы"
+msgid "User deleted successfully"
+msgstr "Пользователь успешно удалён"
 
 #: meta.py:45
-msgid "Labels"
-msgstr "Метки"
+msgid "Deleting a user"
+msgstr "Удаление пользователя"
 
 #: meta.py:46
-msgid "Tasks"
-msgstr "Задачи"
+msgid "Password"
+msgstr "Пароль"
 
-#: settings.py:132
+#: meta.py:47
+msgid "Your password must contain at least 3 characters."
+msgstr "Ваш пароль должен содержать как минимум 3 символа."
+
+#: meta.py:49
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: meta.py:50
+msgid "To confirm, please enter your password again."
+msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+
+#: meta.py:52
+msgid "You are not authorized! Please sign in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: meta.py:53
+msgid "You are logged in"
+msgstr "Вы залогинены"
+
+#: meta.py:54
+msgid "You are logged out"
+msgstr "Вы разлогинены"
+
+#: meta.py:57
+msgid "Create status"
+msgstr "Создать статус"
+
+#: meta.py:58
+msgid "Change status"
+msgstr "Изменение статуса"
+
+#: meta.py:59
+msgid "Delete status"
+msgstr "Удаление статуса"
+
+#: meta.py:60
+msgid "Status created successfully"
+msgstr "Статус успешно создан"
+
+#: meta.py:61
+msgid "Status has been updated successfully!"
+msgstr "Статус успешно изменён"
+
+#: meta.py:62
+msgid "Status deleted successfully"
+msgstr "Статус успешно удалён"
+
+#: settings.py:122
 msgid "Russian"
 msgstr "Русский"
 
-#: settings.py:133
+#: settings.py:123
 msgid "English"
 msgstr "Английский"
