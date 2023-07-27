@@ -28,5 +28,15 @@
       "last_name": "Shmidt",
       "password": "Hersonium13029"
     }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "username": "Holopenio",
+      "first_name": "Hlebuchek",
+      "last_name": "Magkiy",
+      "password": "Kola1989"
+    }
   }
 ]
