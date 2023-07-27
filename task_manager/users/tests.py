@@ -13,77 +13,73 @@ class UserBaseTestCase(TestCase):
         self.user1 = User.objects.get(pk=1)
         self.user2 = User.objects.get(pk=2)
         self.user3 = User.objects.get(pk=3)
+        self.user4 = User.objects.get(pk=4)
         self.users = User.objects.all()
         self.count = User.objects.count()
 
 
 class UsersTestCase(UserBaseTestCase):
 
+    def test_list_users(self):
+
+        response = self.client.get(reverse_lazy('users-index'))
+        response_users = response.context['users']
+
+        self.assertQuerySetEqual(self.users,
+                                 response_users.all(),
+                                 ordered=False)
+
     def test_new_user(self):
 
         self.client.post(reverse_lazy('users-create'), data={
-            'username': self.user1.username,
-            'first_name': self.user1.first_name,
-            'last_name': self.user1.last_name,
-            'password1': self.user1.password,
-            'password2': self.user1.password,
+            'username': 'Coworker',
+            'first_name': 'Monkey',
+            'last_name': 'Belik',
+            'password1': 'Chervonec1755',
+            'password2': 'Chervonec1755',
         })
 
         response = self.client.get(reverse_lazy('users-index'))
         users = response.context['users']
-        user = users.get(username='marganezz')
+        user = users.get(id=5)
 
-        self.assertTrue(user.username == 'marganezz')
-        self.assertTrue(user.first_name == 'Frederic')
-        self.assertTrue(user.last_name == 'Baum')
+        self.assertTrue(user.username == 'Coworker')
+        self.assertTrue(user.first_name == 'Monkey')
+        self.assertTrue(user.last_name == 'Belik')
 
     def test_update_user(self):
-
-        self.client.post(reverse_lazy('users-create'), data={
-            'username': self.user2.username,
-            'first_name': self.user2.first_name,
-            'last_name': self.user2.last_name,
-            'password1': self.user2.password,
-            'password2': self.user2.password,
-        })
 
         self.client.force_login(self.user2)
 
         self.client.post(reverse_lazy('user-update', kwargs={'pk': 2}),
                          data={
-                             'username': 'neko666',
+                             'username': 'nekoUpdated',
                              'first_name': 'Nikolay',
                              'last_name': 'Zemelko',
                              'password1': 'Kola1989',
-                             'password2': 'Kola1989'
+                             'password2': 'Kola1989',
                          })
 
         response = self.client.get(reverse_lazy('users-index'))
         users = response.context['users']
 
-        user = users.get(username='neko666')
+        user = users.get(id=2)
 
-        self.assertTrue(user.username == 'neko666')
+        self.assertTrue(user.username == 'nekoUpdated')
         self.assertTrue(user.first_name == 'Nikolay')
         self.assertTrue(user.last_name == 'Zemelko')
 
     def test_delete_user(self):
-
-        self.client.post(reverse_lazy('users-create'), data={
-            'username': self.user3.username,
-            'first_name': self.user3.first_name,
-            'last_name': self.user3.last_name,
-            'password1': self.user3.password,
-            'password2': self.user3.password,
-        })
 
         users = self.client.get(reverse_lazy('users-index')).context['users']
 
         self.assertEqual(self.count, users.all().count())
 
         self.client.force_login(self.user3)
+
         self.client.post(reverse_lazy('user-delete', kwargs={'pk': 3}))
 
         users = self.client.get(reverse_lazy('users-index')).context['users']
 
-        self.assertEqual(2, users.all().count())
+        self.assertEqual(self.count - 1, users.all().count())
+        self.assertFalse(users.filter(username=self.user3.username))
