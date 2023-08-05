@@ -1,26 +1,10 @@
 [
   {
-    "model": "statuses.status",
+    "model": "tasks.task",
     "pk": 1,
     "fields": {
-      "status_name": "New Status 1",
+      "task_name": "New Task",
       "date_of_creation": "2023-07-27T12:03:12Z"
-    }
-  },
-  {
-    "model": "statuses.status",
-    "pk": 2,
-    "fields": {
-      "status_name": "My awesome Status",
-      "date_of_creation": "2023-07-26T11:54:33Z"
-    }
-  },
-  {
-    "model": "statuses.status",
-    "pk": 3,
-    "fields": {
-      "status_name": "Deleted",
-      "date_of_creation": "2023-06-29T17:55:11Z"
     }
   }
 ]
