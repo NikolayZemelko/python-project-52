@@ -3,7 +3,7 @@ from task_manager.meta import get_meta
 from django.views.generic import UpdateView, DeleteView, CreateView, ListView
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from task_manager.users.forms import SignupForm
+from .forms import SignupForm
 from task_manager.mixins import UserPermissionMixin, \
     AuthRequiredMixin, DeleteProtectedMixin
 
