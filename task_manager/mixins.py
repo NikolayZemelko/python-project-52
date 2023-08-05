@@ -8,7 +8,7 @@ from .meta import get_meta
 
 class UserPermissionMixin(UserPassesTestMixin):
 
-    permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
+    permission_denied_message = None
     permission_url = None
 
     def test_func(self):
