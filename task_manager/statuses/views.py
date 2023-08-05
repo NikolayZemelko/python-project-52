@@ -3,8 +3,8 @@ from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView, CreateView, ListView
 from task_manager.meta import get_meta
 from task_manager.mixins import AuthRequiredMixin
-from task_manager.statuses.forms import StatusForm
-from task_manager.statuses.models import Status
+from .forms import StatusForm
+from .models import Status
 
 
 class StatusesView(ListView):
