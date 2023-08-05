@@ -63,7 +63,8 @@ class StatusesTestCase(StatusBaseTestCase):
 
     def test_delete_status(self):
 
-        statuses = self.client.get(reverse_lazy('statuses-index')).context['statuses']
+        statuses = self.client.get(
+            reverse_lazy('statuses-index')).context['statuses']
 
         self.assertEqual(self.count, statuses.all().count())
 

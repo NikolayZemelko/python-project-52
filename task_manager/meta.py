@@ -31,7 +31,8 @@ def get_meta():
                     Id=_('ID'),
                     Name=_('Name'),
                     DateOfCreate=_('Date of creation'),
-                    RequirmentField=_('Obligatory field. No more than 150 characters. '
+                    RequirmentField=_('Obligatory field. '
+                                      'No more than 150 characters. '
                                       'Only letters, numbers and symbols'),
                     DeletingApproving=_('Are you sure you want to delete'),
                     Update=_('Change'),
@@ -45,7 +46,8 @@ def get_meta():
                     LastName=_('Lastname'),
                     Updating=_('Change user'),
                     Executor=_('Executor'),
-                    RegisteredSuccess=_('User has been registered successfully!'),
+                    RegisteredSuccess=_('User has been '
+                                        'registered successfully!'),
                     UpdatingSuccess=_('User has been updated successfully!'),
                     DeletedSuccess=_("User deleted successfully"),
                     DeletingUser=_('Deleting a user'),
@@ -76,7 +78,8 @@ def get_meta():
                     CreatedSuccess=_('Task created successfully'),
                     UpdatedSuccess=_('Task changed successfully'),
                     DeletedSuccess=_('Task deleted successfully'),
-                    DiffUserDeletingRight=_('A task can only be deleted by its author.'),
+                    DiffUserDeletingRight=_('A task can only be '
+                                            'deleted by its author.'),
                     OnlyYourTasks=_('Only your tasks'),
 
             ),

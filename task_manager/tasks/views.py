@@ -1,7 +1,8 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from task_manager.meta import get_meta
-from django.views.generic import UpdateView, DeleteView, CreateView, ListView, DetailView
+from django.views.generic import (UpdateView, DeleteView,
+                                  CreateView, ListView, DetailView)
 from task_manager.mixins import UserPermissionMixin, \
     AuthRequiredMixin, DeleteProtectedMixin
 from .models import Task
@@ -76,7 +77,9 @@ class TaskDeleteView(SuccessMessageMixin, AuthRequiredMixin,
     model = Task
     success_url = reverse_lazy('tasks-index')
     success_message = get_meta().get('Tasks').get('DeletedSuccess')
-    permission_denied_message = get_meta().get('Tasks').get('DiffUserDeletingRight')
+    permission_denied_message = get_meta().get(
+        'Tasks').get(
+        'DiffUserDeletingRight')
     permission_url = reverse_lazy('tasks-index')
     protected_url = reverse_lazy('tasks-index')
     extra_context = {
