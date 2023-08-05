@@ -5,6 +5,8 @@ def get_meta():
 
     return dict(
             Main=dict(
+                    Author=_('Author'),
+                    Executor=_('Executor'),
                     Title=_('Hexlet Task Manager'),
                     Project_name=_('Task Manager'),
                     Users=_('Users'),
@@ -14,7 +16,9 @@ def get_meta():
                     EnterHeader=_('Log in'),
                     Entering=_('Sigh in'),
                     LogOut=_('Log Out'),
+                    Show=_('Show'),
                     Registration=_('Registration'),
+                    Description=_('Description'),
                     Register=_('Register'),
                     NoUpdatingRight=_('You do not have rights '
                                       'to change another user.'),
@@ -32,6 +36,7 @@ def get_meta():
                     DeletingApproving=_('Are you sure you want to delete'),
                     Update=_('Change'),
                     Delete=_('Delete'),
+                    Empty=_('---------'),
             ),
             Users=dict(
                     UserName=_('Username'),
@@ -39,6 +44,7 @@ def get_meta():
                     FirstName=_('Firstname'),
                     LastName=_('Lastname'),
                     Updating=_('Change user'),
+                    Executor=_('Executor'),
                     RegisteredSuccess=_('User has been registered successfully!'),
                     UpdatingSuccess=_('User has been updated successfully!'),
                     DeletedSuccess=_("User deleted successfully"),
@@ -54,11 +60,27 @@ def get_meta():
                     YouAreLogOut=_('You are logged out'),
                 ),
             Statuses=dict(
+                    Status=_('Status'),
                     CreateStatus=_('Create status'),
                     UpdateStatus=_('Change status'),
                     DeleteStatus=_('Delete status'),
                     CreatedSuccess=_('Status created successfully'),
                     UpdatedSuccess=_('Status has been updated successfully!'),
                     DeletedSuccess=_("Status deleted successfully"),
+            ),
+            Tasks=dict(
+                    CreateTask=_('Create task'),
+                    UpdateTask=_('Update task'),
+                    DeleteTask=_('Delete task'),
+                    ViewTask=_('View task'),
+                    CreatedSuccess=_('Task created successfully'),
+                    UpdatedSuccess=_('Task changed successfully'),
+                    DeletedSuccess=_('Task deleted successfully'),
+                    DiffUserDeletingRight=_('A task can only be deleted by its author.'),
+                    OnlyYourTasks=_('Only your tasks'),
+
+            ),
+            Labels=dict(
+                    Label=_('Label'),
             ),
     )
