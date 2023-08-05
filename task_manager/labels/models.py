@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Label(models.Model):
+
+    label_name = models.CharField(max_length=100)
+    date_of_creation = models.DateTimeField(auto_now_add=True)
