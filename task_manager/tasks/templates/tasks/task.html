@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'index.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load task_manager_tags %}
 
-</body>
-</html>
+{% block content %}
+    <h1 class="my-4">{{ meta.Tasks.ViewTask }}</h1>
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            <h2>{{ task.task_name }}</h2>
+        </div>
+        <div class="card-body bg-light">
+            <p>{{ task.description }}</p>
+            <hr>
+            <div class="container">
+                <div class="row p-1">
+                    <div class="col">{{ meta.Main.Author }}</div>
+                    <div class="col">{{ task.author }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{{ meta.Main.Executor }}</div>
+                    <div class="col">{{ task.executor }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{{ meta.Statuses.Status }}</div>
+                    <div class="col">{{ task.status }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{{ meta.Main.DateOfCreate }}</div>
+                    <div class="col">{% date_format task.date_of_creation %}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <h6>{{ meta.Main.Labels }}</h6>
+                        {% if task.labels %}
+                        	{% for label in task.labels.all %}
+                        		<ul>{{ label.label_name }}</ul>
+                        	{% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <a href="{% url 'task-update' task.id %}">{{ meta.Main.Update }}</a>
+                        <br>
+                        <a href="{% url 'task-delete' task.id %}">{{ meta.Main.Delete }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

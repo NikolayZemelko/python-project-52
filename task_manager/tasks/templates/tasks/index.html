@@ -1,10 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'index.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load task_manager_tags %}
+{% block content %}
+<h1 class="my-4">{{ meta.Main.Tasks }}</h1>
+        <a class="nav-link" href="{% url 'tasks-create' %}">{{ meta.Tasks.CreateTask }}</a>
+    <div class="card mb-3">
+        <div class="card-body bg-light">
+            <form class="form-inline center" method="get">
+                <div class="mb-3">
+                    {% bootstrap_label meta.Statuses.Status %}
+                    <select name="status" class="form-select" id="id_status">
+                        {% if statuses %}
+                        	{% for status in statuses %}
+                                <option value={{ status.id }} selected>{{ status.status_name }}</option>
+                        	{% endfor %}
+                        {% else %}
+                            <option value="1">{{ meta.Main.Empty }}</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    {% bootstrap_label meta.Users.Executor %}
+                    <select name="executor" class="form-select" id="id_executor">
+                        {% if users %}
+                        	{% for user in users %}
+                                <option value={{ user.id }} selected>{{ user.first_name }} {{ user.second_name }}</option>
+                        	{% endfor %}
+                        {% else %}
+                            <option value="1">{{ meta.Main.Empty }}</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    {% bootstrap_label meta.Labels.Label %}
+                    <select name="label" class="form-select" id="id_label">
+                        {% if labels %}
+                        	{% for label in labels %}
+                                <option value={{ label.id }} selected>{{ label.label_name }}</option>
+                        	{% endfor %}
+                        {% else %}
+                            <option value="1">{{ meta.Main.Empty }}</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks">
+                        {% bootstrap_label meta.Tasks.OnlyYourTasks label_class="form-check-label" %}
+                    </div>
+                </div>
+                {% bootstrap_button meta.Main.Show button_type="submit" button_class="btn btn-primary" %}
+            </form>
+        </div>
+    </div>
 
-</body>
-</html>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{ meta.Main.Id }}</th>
+        <th>{{ meta.Main.Name }}</th>
+        <th>{{ meta.Statuses.Status }}</th>
+        <th>{{ meta.Main.Author }}</th>
+        <th>{{ meta.Main.Executor }}</th>
+        <th>{{ meta.Main.DateOfCreate }}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if tasks %}
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td><a href={% url 'task' task.id %} }>{{ task.task_name }}</a></td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.author }}</td>
+                <td>{{ task.executor|default:"" }}</td>
+                <td>{% date_format task.date_of_creation %}</td>
+                <td>
+                    <a href="{% url 'task-update' task.id %}">{{ meta.Main.Update }}</a>
+                    <br>
+                    <a href="{% url 'task-delete' task.id %}">{{ meta.Main.Delete }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+{% endblock %}

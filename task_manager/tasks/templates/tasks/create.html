@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'tasks/changing_base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
 
-</body>
-</html>
+{% block type_of_changing %}
+    <h1 class="my-4">{{ meta.Tasks.CreateTask }}</h1>
+{% endblock %}
+
+{% block button %}
+    {% bootstrap_button meta.Main.CreateButton button_type="submit" button_class="btn btn-primary" %}
+{% endblock %}
