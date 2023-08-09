@@ -15,7 +15,7 @@ def get_meta():
                     Tasks=_('Tasks'),
                     EnterHeader=_('Log in'),
                     Entering=_('Sigh in'),
-                    LogOut=_('Log Out'),
+                    LogOut=_('Logout'),
                     Show=_('Show'),
                     Registration=_('Registration'),
                     Description=_('Description'),
@@ -60,6 +60,7 @@ def get_meta():
                     NotAuthorised=_("You are not authorized! Please sign in."),
                     YouAreLogIn=_('You are logged in'),
                     YouAreLogOut=_('You are logged out'),
+                    UserInWork=_('Cannot delete user because it is in use')
                 ),
             Statuses=dict(
                     Status=_('Status'),
@@ -69,6 +70,7 @@ def get_meta():
                     CreatedSuccess=_('Status created successfully'),
                     UpdatedSuccess=_('Status has been updated successfully!'),
                     DeletedSuccess=_("Status deleted successfully"),
+                    StatusInWork=_("Can't delete status because it's in use")
             ),
             Tasks=dict(
                     CreateTask=_('Create task'),
@@ -78,7 +80,7 @@ def get_meta():
                     CreatedSuccess=_('Task created successfully'),
                     UpdatedSuccess=_('Task changed successfully'),
                     DeletedSuccess=_('Task deleted successfully'),
-                    DiffUserDeletingRight=_('A task can only be '
+                    OnlyAuthorCanDel=_('A task can only be '
                                             'deleted by its author.'),
                     OnlyYourTasks=_('Only your tasks'),
 
