@@ -4,6 +4,9 @@ POETRY := poetry run
 lint:
 	@$(POETRY) flake8 ./task_manager
 
+shell:
+	@$(MANAGE) shell_plus --ipython --print-sql
+
 tests:
 	@$(MANAGE) test
 

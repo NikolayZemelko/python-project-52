@@ -53,6 +53,17 @@ python-versions = ">=3.7"
 django = ">=3.2"
 
 [[package]]
+name = "django-extensions"
+version = "3.2.3"
+description = "Extensions for Django"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "django-filter"
 version = "23.2"
 description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
@@ -192,7 +203,7 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "0604ebdb578832a478117e3a5509f282b264984d4b3aa7689a778e147e072c99"
+content-hash = "181acb561d2da927ad27be1914c5958688d79cbe88c1bc0fcc789e7a1fcfb0a4"
 
 [metadata.files]
 asgiref = [
@@ -210,6 +221,10 @@ django = [
 django-bootstrap5 = [
     {file = "django_bootstrap5-23.3-py3-none-any.whl", hash = "sha256:ca1bb2f40175ed1c1725f52f249a574bf629b33b5a0af3bec0eab1de6d72836c"},
     {file = "django_bootstrap5-23.3.tar.gz", hash = "sha256:21e1956a8a819370decc5d365ce4f4207761cb065afec5a7df8c4c8c49507f2e"},
+]
+django-extensions = [
+    {file = "django-extensions-3.2.3.tar.gz", hash = "sha256:44d27919d04e23b3f40231c4ab7af4e61ce832ef46d610cc650d53e68328410a"},
+    {file = "django_extensions-3.2.3-py3-none-any.whl", hash = "sha256:9600b7562f79a92cbf1fde6403c04fee314608fefbb595502e34383ae8203401"},
 ]
 django-filter = [
     {file = "django-filter-23.2.tar.gz", hash = "sha256:2fe15f78108475eda525692813205fa6f9e8c1caf1ae65daa5862d403c6dbf00"},
