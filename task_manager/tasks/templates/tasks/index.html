@@ -25,7 +25,7 @@
                     <select name="executor" class="form-select" id="id_executor">
                         {% if users %}
                         	{% for user in users %}
-                                <option value={{ user.id }} selected>{{ user.first_name }} {{ user.second_name }}</option>
+                                <option value={{ user.id }} selected>{% concat user.first_name user.last_name %}</option>
                         	{% endfor %}
                         {% else %}
                             <option value="1">{{ meta.Main.Empty }}</option>
@@ -73,9 +73,9 @@
             <tr>
                 <td>{{ task.id }}</td>
                 <td><a href={% url 'task' task.id %} }>{{ task.task_name }}</a></td>
-                <td>{{ task.status }}</td>
-                <td>{{ task.author }}</td>
-                <td>{{ task.executor|default:"" }}</td>
+                <td>{{ task.status.status_name }}</td>
+                <td>{% concat task.author.first_name task.author.last_name %}</td>
+                <td>{% concat task.executor.first_name task.executor.last_name %}</td>
                 <td>{% date_format task.date_of_creation %}</td>
                 <td>
                     <a href="{% url 'task-update' task.id %}">{{ meta.Main.Update }}</a>
