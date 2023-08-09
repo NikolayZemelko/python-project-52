@@ -2,7 +2,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView, CreateView, ListView
 from task_manager.meta import get_meta
-from task_manager.mixins import AuthRequiredMixin
+from task_manager.mixins import AuthRequiredMixin, DeleteProtectedMixin
 from .forms import StatusForm
 from .models import Status
 
@@ -45,13 +45,14 @@ class StatusUpdateView(SuccessMessageMixin, AuthRequiredMixin,
 
 
 class StatusDeleteView(SuccessMessageMixin, AuthRequiredMixin,
-                       DeleteView):
+                       DeleteProtectedMixin, DeleteView):
 
     template_name = 'statuses/delete.html'
     model = Status
     success_url = reverse_lazy('statuses-index')
     success_message = get_meta().get('Statuses').get('DeletedSuccess')
-
+    protected_message = get_meta().get('Statuses').get('StatusInWork')
+    protected_url = reverse_lazy('statuses-index')
     extra_context = {
         'meta': get_meta(),
     }
