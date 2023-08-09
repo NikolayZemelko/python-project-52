@@ -9,11 +9,9 @@ class Task(models.Model):
     description = models.TextField(null=True, blank=True)
     date_of_creation = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(Status,
-                               on_delete=models.SET_DEFAULT,
-                               default=None)
+                               on_delete=models.PROTECT)
     author = models.ForeignKey(User,
-                               on_delete=models.PROTECT,
-                               related_name="author")
+                               on_delete=models.PROTECT)
     executor = models.ForeignKey(User,
                                  on_delete=models.SET_DEFAULT,
                                  default=None,

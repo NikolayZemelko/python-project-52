@@ -55,6 +55,7 @@ class UserDeleteView(SuccessMessageMixin, AuthRequiredMixin,
     success_url = reverse_lazy('users-index')
     success_message = get_meta().get('Users').get('DeletedSuccess')
     permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
+    protected_message = get_meta().get('Users').get('UserInWork')
     permission_url = reverse_lazy('users-index')
     protected_url = reverse_lazy('users-index')
     extra_context = {
