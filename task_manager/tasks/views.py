@@ -3,8 +3,7 @@ from django.urls import reverse_lazy
 from task_manager.meta import get_meta
 from django.views.generic import (UpdateView, DeleteView,
                                   CreateView, ListView, DetailView)
-from task_manager.mixins import UserPermissionMixin, \
-    AuthRequiredMixin, DeleteProtectedMixin
+from task_manager.mixins import AuthRequiredMixin, AuthorDeletionMixin
 from .models import Task
 from django.contrib.auth.models import User
 from task_manager.labels.models import Label
@@ -71,17 +70,16 @@ class TaskUpdateView(SuccessMessageMixin, AuthRequiredMixin, UpdateView):
 
 
 class TaskDeleteView(SuccessMessageMixin, AuthRequiredMixin,
-                     UserPermissionMixin, DeleteProtectedMixin, DeleteView):
+                     AuthorDeletionMixin, DeleteView):
 
     template_name = 'tasks/delete.html'
     model = Task
     success_url = reverse_lazy('tasks-index')
     success_message = get_meta().get('Tasks').get('DeletedSuccess')
-    permission_denied_message = get_meta().get(
+    author_message = get_meta().get(
         'Tasks').get(
-        'DiffUserDeletingRight')
-    permission_url = reverse_lazy('tasks-index')
-    protected_url = reverse_lazy('tasks-index')
+        'OnlyAuthorCanDel')
+    author_url = reverse_lazy('tasks-index')
     extra_context = {
         'meta': get_meta(),
     }
