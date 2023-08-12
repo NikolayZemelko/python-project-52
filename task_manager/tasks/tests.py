@@ -42,7 +42,7 @@ class TasksTestCase(TaskBaseTestCase):
         task = tasks.get(id=3)
 
         self.assertTrue(task.task_name == 'New Task3')
-        self.assertTrue(task.status.status_name == 'New Status1')
+        self.assertTrue(task.status.status_name == 'New Status2')
         self.assertEqual(self.user1, task.author)
         self.assertIsNone(task.executor)
         self.assertFalse(task.description)
@@ -69,7 +69,7 @@ class TasksTestCase(TaskBaseTestCase):
 
         self.assertTrue(task.task_name == 'Task1 Updated')
         self.assertTrue(task.description == 'It`s updated task')
-        self.assertTrue(task.status.status_name == 'New Status1')
+        self.assertTrue(task.status.status_name == 'New Status2')
 
     def test_delete_task(self):
 

@@ -1,5 +1,6 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django_filters.views import FilterView
 from task_manager.meta import get_meta
 from django.views.generic import (UpdateView, DeleteView,
                                   CreateView, ListView, DetailView)
@@ -9,7 +10,7 @@ from django.contrib.auth.models import User
 from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from .forms import TaskForm
-from django_filters.views import FilterView
+from .filters import TaskFilter
 
 
 class TaskView(DetailView):
@@ -27,6 +28,7 @@ class TasksView(ListView, FilterView):
     template_name = "tasks/index.html"
     model = Task
     context_object_name = 'tasks'
+    filter_class = TaskFilter
 
     extra_context = {
         'meta': get_meta(),

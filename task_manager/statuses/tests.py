@@ -72,7 +72,9 @@ class StatusesTestCase(StatusBaseTestCase):
 
         self.client.post(reverse_lazy('status-delete', kwargs={'pk': 3}))
 
-        users = self.client.get(reverse_lazy('users-index')).context['users']
+        statuses = self.client.get(
+            reverse_lazy('statuses-index')
+        ).context['statuses']
 
         self.assertEqual(self.count - 1, statuses.all().count())
-        self.assertFalse(users.filter(username=self.status3.status_name))
+        self.assertFalse(statuses.filter(status_name=self.status3.status_name))
