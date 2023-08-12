@@ -87,5 +87,12 @@ def get_meta():
             ),
             Labels=dict(
                     Label=_('Label'),
+                    CreateLabel=_('Create label'),
+                    UpdateLabel=_('Update label'),
+                    DeleteLabel=_('Delete label'),
+                    CreatedSuccess=_('Label created successfully'),
+                    UpdatedSuccess=_('Label changed successfully'),
+                    DeletedSuccess=_('Label deleted successfully'),
+                    LabelInWork=_("Can't delete label because it's in use")
             ),
     )

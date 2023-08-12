@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load task_manager_tags %}
+{% block content %}
+<h1 class="my-4">{{ meta.Main.Labels }}</h1>
+    <a class="nav-link" href="{% url 'labels-create' %}">{{ meta.Labels.CreateLabel }}</a>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{ meta.Main.Id }}</th>
+        <th>{{ meta.Main.Name }}</th>
+        <th>{{ meta.Main.DateOfCreate }}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if labels %}
+        {% for label in labels %}
+            <tr>
+                <td>{{ label.id }}</td>
+                <td>{{ label.label_name }}</td>
+                <td>{% date_format label.date_of_creation %}</td>
+                <td>
+                    <a href="{% url 'label-update' label.id %}">{{ meta.Main.Update }}</a>
+                    <br>
+                    <a href="{% url 'label-delete' label.id %}">{{ meta.Main.Delete }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+{% endblock %}
