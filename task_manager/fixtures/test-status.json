@@ -11,7 +11,7 @@
     "model": "statuses.status",
     "pk": 2,
     "fields": {
-      "status_name": "New Status1",
+      "status_name": "New Status2",
       "date_of_creation": "2023-08-05T10:01:58.014Z"
     }
   },
@@ -19,7 +19,7 @@
     "model": "statuses.status",
     "pk": 3,
     "fields": {
-      "status_name": "New Status1",
+      "status_name": "New Status3",
       "date_of_creation": "2023-08-05T10:01:58.014Z"
     }
   }
