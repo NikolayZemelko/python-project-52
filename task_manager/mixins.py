@@ -12,7 +12,7 @@ class UserPermissionMixin(UserPassesTestMixin):
     permission_url = None
 
     def test_func(self):
-        return self.get_object() == self.request.user
+        return str(self.get_object().username) == str(self.request.user)
 
     def handle_no_permission(self):
         messages.error(self.request, self.permission_denied_message)
@@ -50,7 +50,7 @@ class AuthorDeletionMixin(UserPassesTestMixin):
     author_url = None
 
     def test_func(self):
-        return self.get_object().author == self.request.user
+        return str(self.get_object().author.username) == str(self.request.user)
 
     def handle_no_permission(self):
         messages.error(self.request, self.author_message)
