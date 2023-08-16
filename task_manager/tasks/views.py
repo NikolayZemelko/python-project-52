@@ -1,14 +1,12 @@
 from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.mixins import AuthRequiredMixin, AuthorDeletionMixin
+from django.views.generic import (UpdateView, DeleteView,
+                                  CreateView, DetailView)
 from django.urls import reverse_lazy
 from django_filters.views import FilterView
 from task_manager.meta import get_meta
-from django.views.generic import (UpdateView, DeleteView,
-                                  CreateView, ListView, DetailView)
-from task_manager.mixins import AuthRequiredMixin, AuthorDeletionMixin
 from .models import Task
-from django.contrib.auth.models import User
-from task_manager.labels.models import Label
-from task_manager.statuses.models import Status
+from ..users.models import TaskUser
 from .forms import TaskForm
 from .filters import TaskFilter
 
