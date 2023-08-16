@@ -30,19 +30,18 @@ class TasksView(AuthRequiredMixin, FilterView):
 
     extra_context = {
         'meta': get_meta(),
-        'users': User.objects.only('first_name', 'last_name'),
-        'labels': Label.objects.only('label_name'),
-        'statuses': Status.objects.only('status_name')
     }
 
 
 class TasksCreateView(SuccessMessageMixin, CreateView):
 
     form_class = TaskForm
-    template_name = 'tasks/create.html'
+    template_name = 'form.html'
 
     extra_context = {
         'meta': get_meta(),
+        'title': get_meta().get('Tasks').get('CreateTask'),
+        'button_text': get_meta().get('Main').get('CreateButton')
     }
 
     success_url = reverse_lazy('tasks-index')
@@ -51,14 +50,14 @@ class TasksCreateView(SuccessMessageMixin, CreateView):
     def form_valid(self, form):
 
         user = self.request.user
-        form.instance.author = User.objects.get(pk=user.pk)
+        form.instance.author = TaskUser.objects.get(pk=user.pk)
 
         return super().form_valid(form)
 
 
 class TaskUpdateView(SuccessMessageMixin, AuthRequiredMixin, UpdateView):
 
-    template_name = 'tasks/update.html'
+    template_name = 'form.html'
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks-index')
@@ -66,6 +65,8 @@ class TaskUpdateView(SuccessMessageMixin, AuthRequiredMixin, UpdateView):
 
     extra_context = {
         'meta': get_meta(),
+        'title': get_meta().get('Tasks').get('CreateTask'),
+        'button_text': get_meta().get('Main').get('Update')
     }
 
 
