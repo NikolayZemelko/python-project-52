@@ -23,12 +23,12 @@ class TaskView(DetailView):
     }
 
 
-class TasksView(ListView, FilterView):
+class TasksView(AuthRequiredMixin, FilterView):
 
     template_name = "tasks/index.html"
     model = Task
     context_object_name = 'tasks'
-    filter_class = TaskFilter
+    filterset_class = TaskFilter
 
     extra_context = {
         'meta': get_meta(),
