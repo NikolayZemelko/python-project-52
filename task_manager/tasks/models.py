@@ -1,7 +1,7 @@
 from django.db import models
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
-from django.contrib.auth.models import User
+from task_manager.users.models import TaskUser
 
 
 class Task(models.Model):
@@ -10,9 +10,9 @@ class Task(models.Model):
     date_of_creation = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(Status,
                                on_delete=models.PROTECT)
-    author = models.ForeignKey(User,
+    author = models.ForeignKey(TaskUser,
                                on_delete=models.PROTECT)
-    executor = models.ForeignKey(User,
+    executor = models.ForeignKey(TaskUser,
                                  on_delete=models.SET_DEFAULT,
                                  default=None,
                                  related_name="executor",
