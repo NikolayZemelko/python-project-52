@@ -20,19 +20,21 @@ class LabelsCreateView(SuccessMessageMixin, AuthRequiredMixin,
                        CreateView):
 
     form_class = LabelForm
-    template_name = 'labels/create.html'
+    template_name = 'form.html'
     success_url = reverse_lazy('labels-index')
     success_message = get_meta().get('Labels').get('CreatedSuccess')
 
     extra_context = {
         'meta': get_meta(),
+        'title': get_meta().get('Labels').get('CreateLabel'),
+        'button_text': get_meta().get('Main').get('CreateButton')
     }
 
 
 class LabelUpdateView(SuccessMessageMixin, AuthRequiredMixin,
                       UpdateView):
 
-    template_name = 'labels/update.html'
+    template_name = 'form.html'
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels-index')
@@ -40,6 +42,8 @@ class LabelUpdateView(SuccessMessageMixin, AuthRequiredMixin,
 
     extra_context = {
         'meta': get_meta(),
+        'title': get_meta().get('Labels').get('UpdateLabel'),
+        'button_text': get_meta().get('Main').get('Update')
     }
 
 

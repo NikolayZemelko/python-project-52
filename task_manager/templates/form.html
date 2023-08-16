@@ -4,12 +4,12 @@
 
 {% block content %}
 
-    {% block type_of_changing %}{% endblock %}
+    <h1 class="my-4">{{ title }}</h1>
 
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        {% block button %}{% endblock %}
+        {% bootstrap_button button_text button_type="submit" button_class="btn btn-primary" %}
 
     </form>
 

@@ -21,19 +21,21 @@ class StatusesCreateView(SuccessMessageMixin, AuthRequiredMixin,
                          CreateView):
 
     form_class = StatusForm
-    template_name = 'statuses/create.html'
+    template_name = 'form.html'
     success_url = reverse_lazy('statuses-index')
     success_message = get_meta().get('Statuses').get('CreatedSuccess')
 
     extra_context = {
         'meta': get_meta(),
+        'title': get_meta().get('Statuses').get('CreateStatus'),
+        'button_text': get_meta().get('Main').get('CreateButton')
     }
 
 
 class StatusUpdateView(SuccessMessageMixin, AuthRequiredMixin,
                        UpdateView):
 
-    template_name = 'statuses/update.html'
+    template_name = 'form.html'
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses-index')
@@ -41,6 +43,8 @@ class StatusUpdateView(SuccessMessageMixin, AuthRequiredMixin,
 
     extra_context = {
         'meta': get_meta(),
+        'title': get_meta().get('Statuses').get('UpdateStatus'),
+        'button_text': get_meta().get('Main').get('Update')
     }
 
 
