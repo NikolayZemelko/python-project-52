@@ -37,6 +37,8 @@ def get_meta():
             Update=_('Change'),
             Delete=_('Delete'),
             Empty=_('---------'),
+            Pass1HelpText=_('Your password must contain '
+                            'at least 3 characters.'),
         ),
         Users=dict(
             UserName=_('Username'),
