@@ -11,7 +11,6 @@ packages = [{include = "task_manager"}]
 python = "^3.10"
 django = "^4.2.3"
 python-dotenv = "^1.0.0"
-dj-database-url = "^2.0.0"
 psycopg2-binary = "^2.9.6"
 gunicorn = "^20.1.0"
 django-bootstrap5 = "^23.3"
@@ -20,6 +19,7 @@ whitenoise = "^6.5.0"
 django-filter = "^23.2"
 django-extensions = "^3.2.3"
 rollbar = "^0.16.3"
+dj-database-url = "^2.1.0"
 
 
 [build-system]
