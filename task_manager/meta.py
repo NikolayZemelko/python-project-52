@@ -30,9 +30,6 @@ def get_meta():
             Id=_('ID'),
             Name=_('Name'),
             DateOfCreate=_('Date of creation'),
-            RequirmentField=_('Obligatory field. '
-                              'No more than 150 characters. '
-                              'Only letters, numbers and symbols'),
             DeletingApproving=_('Are you sure you want to delete'),
             Update=_('Change'),
             Delete=_('Delete'),
@@ -58,6 +55,11 @@ def get_meta():
             PasswordApproval=_('Password confirmation'),
             PasswordApprovalAgain=_('To confirm, please enter '
                                     'your password again.'),
+            PasswordConf=_('Password confirmation'),
+            PasswordConfReq=_('Enter the same password as before, '
+                              'for verification.'),
+            UserNameReq=_('Required. 150 characters or fewer. '
+                          'Letters, digits and @/./+/-/_ only.'),
             NotAuthorised=_("You are not authorized! Please sign in."),
             YouAreLogIn=_('You are logged in'),
             YouAreLogOut=_('You are logged out'),
