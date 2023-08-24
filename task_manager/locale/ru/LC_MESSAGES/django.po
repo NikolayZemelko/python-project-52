@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 20:51+0300\n"
+"POT-Creation-Date: 2023-08-24 18:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: meta.py:7
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
-#: meta.py:8 meta.py:49
+#: meta.py:8 meta.py:46
 msgid "Executor"
-msgstr ""
+msgstr "Исполнитель"
 
 #: meta.py:9
 msgid "Hexlet Task Manager"
@@ -62,21 +62,19 @@ msgstr "Регистрация"
 
 #: meta.py:17
 msgid "Logout"
-msgstr ""
+msgstr "Выход"
 
 #: meta.py:18
 msgid "Show"
-msgstr ""
+msgstr "Показать"
 
 #: meta.py:19
 msgid "Registration"
 msgstr "Регистрация"
 
 #: meta.py:20
-#, fuzzy
-#| msgid "Registration"
 msgid "Description"
-msgstr "Регистрация"
+msgstr "Описание"
 
 #: meta.py:21
 msgid "Register"
@@ -123,219 +121,197 @@ msgid "Date of creation"
 msgstr "Дата создания"
 
 #: meta.py:33
-msgid ""
-"Obligatory field. No more than 150 characters. Only letters, numbers and "
-"symbols"
-msgstr ""
-"Обязательное поле. Не более 150 символов. Только буквы, цифры и символы "
-
-#: meta.py:36
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: meta.py:37
+#: meta.py:34
 msgid "Change"
 msgstr "Изменить"
 
-#: meta.py:38
+#: meta.py:35
 msgid "Delete"
 msgstr "Удалить"
 
-#: meta.py:39
+#: meta.py:36
 msgid "---------"
-msgstr ""
+msgstr "---------"
 
-#: meta.py:40 meta.py:56
+#: meta.py:37 meta.py:53
 msgid "Your password must contain at least 3 characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: meta.py:44
+#: meta.py:41
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: meta.py:45
+#: meta.py:42
 msgid "Fullname"
 msgstr "Полное имя"
 
-#: meta.py:46
+#: meta.py:43
 msgid "Firstname"
 msgstr "Имя"
 
-#: meta.py:47
+#: meta.py:44
 msgid "Lastname"
 msgstr "Фамилия"
 
-#: meta.py:48
+#: meta.py:45
 msgid "Change user"
 msgstr "Изменение пользователя"
 
-#: meta.py:50
+#: meta.py:47
 msgid "User has been registered successfully!"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: meta.py:52
+#: meta.py:49
 msgid "User has been updated successfully!"
 msgstr "Пользователь успешно изменён"
 
-#: meta.py:53
+#: meta.py:50
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удалён"
 
-#: meta.py:54
+#: meta.py:51
 msgid "Deleting a user"
 msgstr "Удаление пользователя"
 
-#: meta.py:55
+#: meta.py:52
 msgid "Password"
 msgstr "Пароль"
 
-#: meta.py:58
+#: meta.py:55 meta.py:58
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: meta.py:59
+#: meta.py:56
 msgid "To confirm, please enter your password again."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
+#: meta.py:59
+msgid "Enter the same password as before, for verification."
+msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+
 #: meta.py:61
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+
+#: meta.py:63
 msgid "You are not authorized! Please sign in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: meta.py:62
+#: meta.py:64
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: meta.py:63
+#: meta.py:65
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: meta.py:64
+#: meta.py:66
 msgid "Cannot delete user because it is in use"
-msgstr ""
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: meta.py:67
-#, fuzzy
-#| msgid "Statuses"
+#: meta.py:69
 msgid "Status"
 msgstr "Статусы"
 
-#: meta.py:68
+#: meta.py:70
 msgid "Create status"
 msgstr "Создать статус"
 
-#: meta.py:69
+#: meta.py:71
 msgid "Change status"
 msgstr "Изменение статуса"
 
-#: meta.py:70
+#: meta.py:72
 msgid "Delete status"
 msgstr "Удаление статуса"
 
-#: meta.py:71
+#: meta.py:73
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: meta.py:72
+#: meta.py:74
 msgid "Status has been updated successfully!"
 msgstr "Статус успешно изменён"
 
-#: meta.py:73
+#: meta.py:75
 msgid "Status deleted successfully"
 msgstr "Статус успешно удалён"
 
-#: meta.py:74
+#: meta.py:76
 msgid "Can't delete status because it's in use"
-msgstr ""
-
-#: meta.py:77
-#, fuzzy
-#| msgid "Create status"
-msgid "Create task"
-msgstr "Создать статус"
-
-#: meta.py:78
-msgid "Update task"
-msgstr ""
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: meta.py:79
-#, fuzzy
-#| msgid "Delete status"
+msgid "Create task"
+msgstr "Создать задачу"
+
+#: meta.py:80
+msgid "Update task"
+msgstr "Изменение задачи"
+
+#: meta.py:81
 msgid "Delete task"
 msgstr "Удаление статуса"
 
-#: meta.py:80
+#: meta.py:82
 msgid "View task"
-msgstr ""
+msgstr "Просмотр задачи"
 
-#: meta.py:81
-#, fuzzy
-#| msgid "Status created successfully"
+#: meta.py:83
 msgid "Task created successfully"
 msgstr "Статус успешно создан"
 
-#: meta.py:82
-#, fuzzy
-#| msgid "Status created successfully"
+#: meta.py:84
 msgid "Task changed successfully"
 msgstr "Статус успешно создан"
 
-#: meta.py:83
+#: meta.py:85
 #, fuzzy
-#| msgid "Status deleted successfully"
 msgid "Task deleted successfully"
 msgstr "Статус успешно удалён"
 
-#: meta.py:84
-msgid "A task can only be deleted by its author."
-msgstr ""
-
 #: meta.py:86
-msgid "Only your tasks"
-msgstr ""
+msgid "A task can only be deleted by its author."
+msgstr "Задачу может удалить только ее автор"
 
-#: meta.py:90
-#, fuzzy
-#| msgid "Labels"
+#: meta.py:88
+msgid "Only your tasks"
+msgstr "Только свои задачи"
+
+#: meta.py:92
 msgid "Label"
 msgstr "Метки"
 
-#: meta.py:91
-#, fuzzy
-#| msgid "Create"
-msgid "Create label"
-msgstr "Создать"
-
-#: meta.py:92
-msgid "Update label"
-msgstr ""
-
 #: meta.py:93
-#, fuzzy
-#| msgid "Delete"
-msgid "Delete label"
-msgstr "Удалить"
+msgid "Create label"
+msgstr "Создать метку"
 
 #: meta.py:94
-#, fuzzy
-#| msgid "Status created successfully"
+msgid "Update label"
+msgstr "Изменение метки"
+
+#: meta.py:95
+msgid "Delete label"
+msgstr "Удаление метки"
+
+#: meta.py:96
 msgid "Label created successfully"
 msgstr "Статус успешно создан"
 
-#: meta.py:95
-#, fuzzy
-#| msgid "Status created successfully"
+#: meta.py:97
 msgid "Label changed successfully"
 msgstr "Статус успешно создан"
 
-#: meta.py:96
-#, fuzzy
-#| msgid "User deleted successfully"
+#: meta.py:98
 msgid "Label deleted successfully"
 msgstr "Пользователь успешно удалён"
 
-#: meta.py:97
+#: meta.py:99
 msgid "Can't delete label because it's in use"
-msgstr ""
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: settings.py:135
 msgid "Russian"
@@ -344,6 +320,3 @@ msgstr "Русский"
 #: settings.py:136
 msgid "English"
 msgstr "Английский"
-
-#~ msgid "Log Out"
-#~ msgstr "Выход"
