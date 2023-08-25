@@ -1,7 +1,6 @@
 from .models import TaskUser
 from ..meta import get_meta
 from django.contrib.auth.forms import UserCreationForm
-from task_manager.meta import get_meta
 from django import forms
 
 
