@@ -5,22 +5,27 @@ install:
 	poetry install
 
 lint:
-	@$(POETRY) flake8 ./task_manager
+	$(POETRY) flake8 ./task_manager
 
 shell:
-	@$(MANAGE) shell_plus --ipython --print-sql
+	$(MANAGE) shell_plus --ipython --print-sql
+
+test-coverage:
+	$(POETRY) coverage run manage.py test
+	$(POETRY) coverage xml --include=task_manager/* --omit=settings.py
 
 tests:
-	@$(MANAGE) test
+	$(MANAGE) test
 
 dev:
-	@$(MANAGE) runserver --settings=task_manager.settings_dev
+	$(MANAGE) runserver --settings=task_manager.settings_dev
 
 migrations:
-	@$(MANAGE) makemigrations
+	$(MANAGE) makemigrations
 
 migrate:
-	@$(MANAGE) migrate
+	$(MANAGE) migrate
 
+PORT ?= 8000
 start:
-	@$(MANAGE) runserver
+	$(POETRY) gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
