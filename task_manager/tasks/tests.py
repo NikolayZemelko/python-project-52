@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from .models import Task
 from django.urls import reverse_lazy
-from django.contrib.auth.models import User
+from ..users.models import TaskUser
 
 
 class TaskBaseTestCase(TestCase):
@@ -11,7 +11,7 @@ class TaskBaseTestCase(TestCase):
     def setUp(self) -> None:
 
         self.client = Client()
-        self.user1 = User.objects.get(pk=1)
+        self.user1 = TaskUser.objects.get(pk=1)
         self.task1 = Task.objects.get(pk=1)
         self.task2 = Task.objects.get(pk=2)
         self.tasks = Task.objects.all()
@@ -22,6 +22,7 @@ class TasksTestCase(TaskBaseTestCase):
 
     def test_list_tasks(self):
 
+        self.client.force_login(self.user1)
         response = self.client.get(reverse_lazy('tasks-index'))
         response_tasks = response.context['tasks']
 
@@ -72,6 +73,8 @@ class TasksTestCase(TaskBaseTestCase):
         self.assertTrue(task.status.status_name == 'New Status2')
 
     def test_delete_task(self):
+
+        self.client.force_login(self.user1)
 
         tasks = self.client.get(reverse_lazy('tasks-index')).context['tasks']
 
