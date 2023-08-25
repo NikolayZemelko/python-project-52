@@ -11,7 +11,19 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - run: pip install poetry
-      - run: make install
-      - run: make lint
-      - run: make tests
+      - name: Install Dependencies
+        run: | 
+          pip install poetry
+          make install
+      - name: Run Tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: make tests
+      - name: Run CodeCoverage
+        uses: paambaati/codeclimate-action@v5.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.SECRET_KEY }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
