@@ -1,6 +1,9 @@
 MANAGE := poetry run python3 manage.py
 POETRY := poetry run
 
+install:
+	poetry install
+
 lint:
 	@$(POETRY) flake8 ./task_manager
 
