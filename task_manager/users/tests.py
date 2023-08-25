@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from django.contrib.auth.models import User
+from ..users.models import TaskUser
 from django.urls import reverse_lazy
 
 
@@ -10,12 +10,12 @@ class UserBaseTestCase(TestCase):
     def setUp(self) -> None:
 
         self.client = Client()
-        self.user1 = User.objects.get(pk=1)
-        self.user2 = User.objects.get(pk=2)
-        self.user3 = User.objects.get(pk=3)
-        self.user4 = User.objects.get(pk=4)
-        self.users = User.objects.all()
-        self.count = User.objects.count()
+        self.user1 = TaskUser.objects.get(pk=1)
+        self.user2 = TaskUser.objects.get(pk=2)
+        self.user3 = TaskUser.objects.get(pk=3)
+        self.user4 = TaskUser.objects.get(pk=4)
+        self.users = TaskUser.objects.all()
+        self.count = TaskUser.objects.count()
 
 
 class UsersTestCase(UserBaseTestCase):
