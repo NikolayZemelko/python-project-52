@@ -1,42 +1,46 @@
 [
   {
-    "model": "auth.user",
+    "model": "users.TaskUser",
     "pk": 1,
     "fields": {
       "username": "marganezz",
       "first_name": "Frederic",
       "last_name": "Baum",
-      "password": "Heruvim1566"
+      "password1": "Heruvim1566",
+      "password2": "Heruvim1566"
     }
   },
   {
-    "model": "auth.user",
+    "model": "users.TaskUser",
     "pk": 2,
     "fields": {
       "username": "neko",
       "first_name": "Nikolay",
       "last_name": "Zemelko",
-      "password": "Kola1989"
+      "password1": "Kola1989",
+      "password2": "Kola1989"
     }
   },
   {
-    "model": "auth.user",
+    "model": "users.TaskUser",
     "pk": 3,
     "fields": {
       "username": "Chervon",
       "first_name": "Adam",
       "last_name": "Shmidt",
-      "password": "Hersonium13029"
+      "password1": "Hersonium13029",
+      "password2": "Hersonium13029"
     }
   },
   {
-    "model": "auth.user",
+    "model": "users.TaskUser",
     "pk": 4,
     "fields": {
       "username": "Holopenio",
       "first_name": "Hlebuchek",
       "last_name": "Magkiy",
-      "password": "Kola1989"
+      "password1": "Kola1989",
+      "password2": "Kola1989"
     }
   }
 ]
