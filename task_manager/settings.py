@@ -24,15 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY',
-                       default="django-insecure-n0da2+gh@e(*u(7b_s-2*gtsr@vbz6#5=x$15fb9$i!@&__k!9")
+SECRET_KEY = os.environ.get('SECRET_KEY',
+                            default="django-insecure-n0da2+gh@e(*u(7b_s-2*gtsr@vbz6#5=x$15fb9$i!@&__k!9")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", default=False)
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS',
-                          default=['webserver', '127.0.0.1',
-                                   'localhost', '0.0.0.0'])
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',
+                               default=['webserver', '127.0.0.1', 'localhost', '0.0.0.0'])
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -125,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', default='en')
+LANGUAGE_CODE = os.environ.get('LANGUAGE_CODE', default='en')
 
 LANGUAGES = [
     ('ru', _('Russian')),
