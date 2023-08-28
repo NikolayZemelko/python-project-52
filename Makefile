@@ -18,7 +18,7 @@ tests:
 	$(MANAGE) test
 
 dev:
-	$(MANAGE) runserver --settings=task_manager.settings_dev
+	$(MANAGE) runserver
 
 migrations:
 	$(MANAGE) makemigrations
