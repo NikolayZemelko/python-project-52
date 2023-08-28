@@ -16,6 +16,8 @@ jobs:
           pip install poetry
           make install
       - name: Run Tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: make tests
       - name: Run CodeCoverage
         uses: paambaati/codeclimate-action@v5.0.0
