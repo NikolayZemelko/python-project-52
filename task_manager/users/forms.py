@@ -10,7 +10,14 @@ class SignupForm(UserCreationForm):
         label=get_meta().get('Users').get('Password'),
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
-        help_text=get_meta().get('Main').get('Pass1HelpText'),
+        help_text=get_meta().get('Users').get('Pass1HelpText'),
+    )
+
+    password2 = forms.CharField(
+        label=get_meta().get('Users').get('PasswordApproval'),
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
+        help_text=get_meta().get('Users').get('PasswordConfReq'),
     )
 
     class Meta(UserCreationForm.Meta):
@@ -22,7 +29,6 @@ class SignupForm(UserCreationForm):
             'first_name': get_meta().get('Users').get('FirstName'),
             'last_name': get_meta().get('Users').get('LastName'),
             'username': get_meta().get('Users').get('UserName'),
-            'password2': get_meta().get('Users').get('PasswordConf')
         }
 
         help_texts = {

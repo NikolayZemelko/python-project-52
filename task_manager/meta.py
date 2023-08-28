@@ -33,9 +33,7 @@ def get_meta():
             DeletingApproving=_('Are you sure you want to delete'),
             Update=_('Change'),
             Delete=_('Delete'),
-            Empty=_('---------'),
-            Pass1HelpText=_('Your password must contain '
-                            'at least 3 characters.'),
+            Empty=_('---------')
         ),
         Users=dict(
             UserName=_('Username'),
@@ -55,9 +53,10 @@ def get_meta():
             PasswordApproval=_('Password confirmation'),
             PasswordApprovalAgain=_('To confirm, please enter '
                                     'your password again.'),
-            PasswordConf=_('Password confirmation'),
             PasswordConfReq=_('Enter the same password as before, '
                               'for verification.'),
+            Pass1HelpText=_('Your password must contain '
+                            'at least 3 characters.'),
             UserNameReq=_('Required. 150 characters or fewer. '
                           'Letters, digits and @/./+/-/_ only.'),
             NotAuthorised=_("You are not authorized! Please sign in."),
