@@ -137,6 +137,8 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATIC_URL = "/staticfiles/"
+
 STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
