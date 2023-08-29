@@ -122,13 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', default='ru')
-
-LANGUAGES = [
-    ('ru', _('Russian')),
-    ('en-us', _('English')),
-]
-
+LANGUAGE_CODE = 'en_US'
 
 TIME_ZONE = 'UTC'
 
@@ -140,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = BASE_DIR / 'static'
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
