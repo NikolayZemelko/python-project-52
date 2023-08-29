@@ -1,11 +1,9 @@
 {% extends 'index.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
-
 {% block content %}
     <h1 class="my-4">{{ meta.Statuses.DeleteStatus }}</h1>
     <p>{{ meta.Main.DeletingApproving }} {{ status.status_name }}?</p>
-
     <form method="post">
         {% csrf_token %}
         {% bootstrap_button meta.Main.DeleteButton button_type="submit" button_class="btn btn-danger" %}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru-ru">
+<html lang="ru">
 <head>
     {% load i18n %}
     {% load django_bootstrap5 %}
@@ -16,16 +16,11 @@
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     {% block log_In_or_Out %}{% endblock %}
-
 </nav>
 <div class="container wrapper flex-grow-1">
-
     {% bootstrap_messages %}
-
     {% block content %}{% endblock %}
-
 </div>
 <footer>
     <div class="container my-5 pt-4 border-top">
