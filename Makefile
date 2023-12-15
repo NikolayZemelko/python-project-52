@@ -5,17 +5,17 @@ install:
 	poetry install
 
 lint:
-	flake8 ./task_manager
+	$(POETRY) flake8 ./task_manager
 
 shell:
 	shell_plus --ipython --print-sql
 
 test-coverage:
-	coverage run manage.py test
-	coverage xml --include=task_manager/* --omit=settings.py
+	$(POETRY) coverage run manage.py test
+	$(POETRY) coverage xml --include=task_manager/* --omit=settings.py
 
 tests:
-	$(MANAGE) test
+	$(POETRY) $(MANAGE) test
 
 dev:
 	$(MANAGE) runserver
