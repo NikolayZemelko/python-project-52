@@ -8,11 +8,11 @@
     {% bootstrap_javascript %}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ meta.Main.Title }}</title>
+    <title>{% trans "Hexlet Task Manager" %}</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url "index" %}">{{ meta.Main.Project_name }}</a>
+    <a class="navbar-brand" href="{% url "index" %}">{% trans "Task Manager" %}</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,7 +24,7 @@
 </div>
 <footer>
     <div class="container my-5 pt-4 border-top">
-        <a target="_blank" href="https://ru.hexlet.io/">{{ meta.Main.Hexlet }}</a>
+        <a target="_blank" href="https://ru.hexlet.io/">{% trans "Hexlet" %}</a>
     </div>
 </footer>
 </body>

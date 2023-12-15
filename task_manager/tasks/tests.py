@@ -1,15 +1,14 @@
 from django.test import TestCase, Client
-from .models import Task
 from django.urls import reverse_lazy
+
+from .models import Task
 from ..users.models import TaskUser
 
 
 class TaskBaseTestCase(TestCase):
-
     fixtures = ['test-user.json', 'test-status.json', 'test-tasks.json']
 
     def setUp(self) -> None:
-
         self.client = Client()
         self.user1 = TaskUser.objects.get(pk=1)
         self.task1 = Task.objects.get(pk=1)
@@ -21,7 +20,6 @@ class TaskBaseTestCase(TestCase):
 class TasksTestCase(TaskBaseTestCase):
 
     def test_list_tasks(self):
-
         self.client.force_login(self.user1)
         response = self.client.get(reverse_lazy('tasks-index'))
         response_tasks = response.context['tasks']
@@ -31,7 +29,6 @@ class TasksTestCase(TaskBaseTestCase):
                                  ordered=False)
 
     def test_new_task_minimum_fields(self):
-
         self.client.force_login(self.user1)
         self.client.post(reverse_lazy('tasks-create'), data={
             'task_name': 'New Task3',
@@ -51,7 +48,6 @@ class TasksTestCase(TaskBaseTestCase):
         self.assertTrue(self.count + 1 == tasks.count())
 
     def test_update_task(self):
-
         self.client.force_login(self.user1)
 
         self.client.post(reverse_lazy('task-update', kwargs={'pk': 1}),
@@ -73,7 +69,6 @@ class TasksTestCase(TaskBaseTestCase):
         self.assertTrue(task.status.status_name == 'New Status2')
 
     def test_delete_task(self):
-
         self.client.force_login(self.user1)
 
         tasks = self.client.get(reverse_lazy('tasks-index')).context['tasks']

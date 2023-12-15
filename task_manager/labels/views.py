@@ -1,7 +1,8 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import UpdateView, DeleteView, CreateView, ListView
-from task_manager.meta import get_meta
+
 from task_manager.mixins import AuthRequiredMixin, DeleteProtectedMixin
 from .forms import LabelForm
 from .models import Label
@@ -11,51 +12,48 @@ class LabelsView(ListView):
     template_name = "labels/index.html"
     model = Label
     context_object_name = 'labels'
-    extra_context = {
-        'meta': get_meta(),
-    }
 
 
-class LabelsCreateView(SuccessMessageMixin, AuthRequiredMixin,
+class LabelsCreateView(SuccessMessageMixin,
+                       AuthRequiredMixin,
                        CreateView):
-
     form_class = LabelForm
     template_name = 'form.html'
     success_url = reverse_lazy('labels-index')
-    success_message = get_meta().get('Labels').get('CreatedSuccess')
+    success_message = _('Label created successfully')
 
     extra_context = {
-        'meta': get_meta(),
-        'title': get_meta().get('Labels').get('CreateLabel'),
-        'button_text': get_meta().get('Main').get('CreateButton')
+        'title': _('Create label'),
+        'button_text': _('Create')
     }
 
 
-class LabelUpdateView(SuccessMessageMixin, AuthRequiredMixin,
+class LabelUpdateView(SuccessMessageMixin,
+                      AuthRequiredMixin,
                       UpdateView):
-
     template_name = 'form.html'
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels-index')
-    success_message = get_meta().get('Labels').get('UpdatedSuccess')
+    success_message = _('Label changed successfully')
 
     extra_context = {
-        'meta': get_meta(),
-        'title': get_meta().get('Labels').get('UpdateLabel'),
-        'button_text': get_meta().get('Main').get('Update')
+        'title': _('Update label'),
+        'button_text': _('Change')
     }
 
 
-class LabelDeleteView(SuccessMessageMixin, AuthRequiredMixin,
-                      DeleteProtectedMixin, DeleteView):
-
+class LabelDeleteView(SuccessMessageMixin,
+                      AuthRequiredMixin,
+                      DeleteProtectedMixin,
+                      DeleteView):
     template_name = 'labels/delete.html'
     model = Label
     success_url = reverse_lazy('labels-index')
-    success_message = get_meta().get('Labels').get('DeletedSuccess')
-    protected_message = get_meta().get('Labels').get('LabelInWork')
+    success_message = _('Label deleted successfully')
+    protected_message = _("Can't delete label because it's in use")
     protected_url = reverse_lazy('labels-index')
     extra_context = {
-        'meta': get_meta(),
+        "title": _('Delete label'),
+        "warning_message": _("Are you sure you want to delete")
     }

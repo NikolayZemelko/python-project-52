@@ -1,9 +1,9 @@
-from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.db.models import ProtectedError
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from .meta import get_meta
+from django.utils.translation import gettext_lazy as _
 
 
 class UserPermissionMixin(UserPassesTestMixin):
@@ -21,7 +21,7 @@ class UserPermissionMixin(UserPassesTestMixin):
 
 class AuthRequiredMixin(LoginRequiredMixin):
 
-    auth_message = get_meta().get('Users').get('NotAuthorised')
+    auth_message = _("You are not authorized! Please sign in.")
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:

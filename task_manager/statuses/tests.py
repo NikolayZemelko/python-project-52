@@ -1,15 +1,14 @@
-from django.test import TestCase, Client
-from .models import Status
 from django.contrib.auth.models import User
+from django.test import TestCase, Client
 from django.urls import reverse_lazy
+
+from .models import Status
 
 
 class StatusBaseTestCase(TestCase):
-
     fixtures = ['test-status.json', 'test-user.json']
 
     def setUp(self) -> None:
-
         self.client = Client()
         self.user1 = User.objects.get(pk=1)
         self.status1 = Status.objects.get(pk=1)
@@ -22,7 +21,6 @@ class StatusBaseTestCase(TestCase):
 class StatusesTestCase(StatusBaseTestCase):
 
     def test_list_status(self):
-
         self.client.force_login(self.user1)
 
         response = self.client.get(reverse_lazy('statuses-index'))
@@ -33,7 +31,6 @@ class StatusesTestCase(StatusBaseTestCase):
                                  ordered=False)
 
     def test_new_status(self):
-
         self.client.force_login(self.user1)
 
         self.client.post(reverse_lazy('statuses-create'), data={
@@ -48,7 +45,6 @@ class StatusesTestCase(StatusBaseTestCase):
         self.assertTrue(status.date_of_creation)
 
     def test_update_status(self):
-
         self.client.force_login(self.user1)
         self.client.post(reverse_lazy('status-update', kwargs={'pk': 1}),
                          data={
@@ -62,7 +58,6 @@ class StatusesTestCase(StatusBaseTestCase):
         self.assertTrue(status.status_name == 'Status 1 Changed')
 
     def test_delete_status(self):
-
         statuses = self.client.get(
             reverse_lazy('statuses-index')).context['statuses']
 

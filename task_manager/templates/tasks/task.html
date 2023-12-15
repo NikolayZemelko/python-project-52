@@ -3,7 +3,7 @@
 {% load django_bootstrap5 %}
 {% load task_manager_tags %}
 {% block content %}
-    <h1 class="my-4">{{ meta.Tasks.ViewTask }}</h1>
+    <h1 class="my-4">{% trans "View task" %}</h1>
     <div class="card">
         <div class="card-header bg-secondary text-white">
             <h2>{{ task.task_name }}</h2>
@@ -13,24 +13,24 @@
             <hr>
             <div class="container">
                 <div class="row p-1">
-                    <div class="col">{{ meta.Main.Author }}</div>
+                    <div class="col">{% trans "Author" %}</div>
                     <div class="col">{{ task.author }}</div>
                 </div>
                 <div class="row p-1">
-                    <div class="col">{{ meta.Main.Executor }}</div>
+                    <div class="col">{% trans "Executor" %}</div>
                     <div class="col">{{ task.executor }}</div>
                 </div>
                 <div class="row p-1">
-                    <div class="col">{{ meta.Statuses.Status }}</div>
+                    <div class="col">{% trans "Status" %}</div>
                     <div class="col">{{ task.status }}</div>
                 </div>
                 <div class="row p-1">
-                    <div class="col">{{ meta.Main.DateOfCreate }}</div>
+                    <div class="col">{% trans "Date of creation" %}</div>
                     <div class="col">{% date_format task.date_of_creation %}</div>
                 </div>
                 <div class="row p-1">
                     <div class="col">
-                        <h6>{{ meta.Main.Labels }}:</h6>
+                        <h6>{% trans "Labels" %}:</h6>
                         {% if task.labels %}
                             <ul>
                                 {% for label in task.labels.all %}
@@ -44,9 +44,9 @@
                 </div>
                 <div class="row p-1">
                     <div class="col">
-                        <a href="{% url 'task-update' task.id %}">{{ meta.Main.Update }}</a>
+                        <a href="{% url 'task-update' task.id %}">{% trans "Change" %}</a>
                         <br>
-                        <a href="{% url 'task-delete' task.id %}">{{ meta.Main.Delete }}</a>
+                        <a href="{% url 'task-delete' task.id %}">{% trans "Delete" %}</a>
                     </div>
                 </div>
             </div>

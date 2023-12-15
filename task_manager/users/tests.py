@@ -1,14 +1,13 @@
 from django.test import TestCase, Client
-from ..users.models import TaskUser
 from django.urls import reverse_lazy
+
+from ..users.models import TaskUser
 
 
 class UserBaseTestCase(TestCase):
-
     fixtures = ['test-user.json']
 
     def setUp(self) -> None:
-
         self.client = Client()
         self.user1 = TaskUser.objects.get(pk=1)
         self.user2 = TaskUser.objects.get(pk=2)
@@ -21,7 +20,6 @@ class UserBaseTestCase(TestCase):
 class UsersTestCase(UserBaseTestCase):
 
     def test_list_users(self):
-
         response = self.client.get(reverse_lazy('users-index'))
         response_users = response.context['users']
 
@@ -30,7 +28,6 @@ class UsersTestCase(UserBaseTestCase):
                                  ordered=False)
 
     def test_new_user(self):
-
         self.client.post(reverse_lazy('users-create'), data={
             'username': 'Coworker',
             'first_name': 'Monkey',
@@ -48,7 +45,6 @@ class UsersTestCase(UserBaseTestCase):
         self.assertTrue(user.last_name == 'Belik')
 
     def test_update_user(self):
-
         self.client.force_login(self.user2)
 
         self.client.post(reverse_lazy('user-update', kwargs={'pk': 2}),
@@ -70,7 +66,6 @@ class UsersTestCase(UserBaseTestCase):
         self.assertTrue(user.last_name == 'Zemelko')
 
     def test_delete_user(self):
-
         users = self.client.get(reverse_lazy('users-index')).context['users']
 
         self.assertEqual(self.count, users.all().count())

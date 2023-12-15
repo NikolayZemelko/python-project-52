@@ -5,7 +5,7 @@ install:
 	poetry install
 
 lint:
-	$(POETRY) flake8 ./task_manager
+	$(POETRY) flake8 .
 
 shell:
 	shell_plus --ipython --print-sql

@@ -1,67 +1,69 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.meta import get_meta
-from django.views.generic import UpdateView, DeleteView, CreateView, ListView
-from .models import TaskUser
 from django.urls import reverse_lazy
-from .forms import SignupForm
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import UpdateView, DeleteView, CreateView, ListView
+
 from task_manager.mixins import UserPermissionMixin, \
     AuthRequiredMixin, DeleteProtectedMixin
+from .forms import SignupForm
+from .models import TaskUser
 
 
 class UsersView(ListView):
-
     template_name = "users/index.html"
     model = TaskUser
     context_object_name = 'users'
-    extra_context = {
-        'meta': get_meta(),
-    }
 
 
-class UsersCreateView(SuccessMessageMixin, CreateView):
-
+class UsersCreateView(SuccessMessageMixin,
+                      CreateView):
     form_class = SignupForm
     template_name = 'form.html'
 
     extra_context = {
-        'meta': get_meta(),
-        'title': get_meta().get('Main').get('Registration'),
-        'button_text': get_meta().get('Main').get('Register')
+        'title': _('Registration'),
+        'button_text': _('Register')
     }
 
     success_url = reverse_lazy('login')
-    success_message = get_meta().get('Users').get('RegisteredSuccess')
+    success_message = _('User has been '
+                        'registered successfully!')
 
 
-class UserUpdateView(SuccessMessageMixin, AuthRequiredMixin,
-                     UserPermissionMixin, UpdateView):
-
+class UserUpdateView(SuccessMessageMixin,
+                     AuthRequiredMixin,
+                     UserPermissionMixin,
+                     UpdateView):
     template_name = 'form.html'
     model = TaskUser
     form_class = SignupForm
     success_url = reverse_lazy('users-index')
-    success_message = get_meta().get('Users').get('UpdatingSuccess')
-    permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
+    success_message = _('User has been updated successfully!')
+    permission_denied_message = _('You do not have rights '
+                                  'to change another user.')
     permission_url = reverse_lazy('users-index')
 
     extra_context = {
-        'meta': get_meta(),
-        'title': get_meta().get('Users').get('Updating'),
-        'button_text': get_meta().get('Main').get('Update')
+        'title': _('Change user'),
+        'button_text': _("Change")
     }
 
 
-class UserDeleteView(SuccessMessageMixin, AuthRequiredMixin,
-                     UserPermissionMixin, DeleteProtectedMixin, DeleteView):
-
+class UserDeleteView(SuccessMessageMixin,
+                     AuthRequiredMixin,
+                     UserPermissionMixin,
+                     DeleteProtectedMixin,
+                     DeleteView):
     template_name = 'users/delete.html'
     model = TaskUser
     success_url = reverse_lazy('users-index')
-    success_message = get_meta().get('Users').get('DeletedSuccess')
-    permission_denied_message = get_meta().get('Main').get('NoUpdatingRight')
-    protected_message = get_meta().get('Users').get('UserInWork')
+    success_message = _("User deleted successfully")
+    permission_denied_message = _('You do not have rights '
+                                  'to change another user.')
+    protected_message = _('Cannot delete user because it is in use')
     permission_url = reverse_lazy('users-index')
     protected_url = reverse_lazy('users-index')
     extra_context = {
-        'meta': get_meta(),
+        "title": _('Deleting a user'),
+        "warning_message": _("Are you sure you want to delete")
     }

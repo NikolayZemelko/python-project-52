@@ -18,7 +18,9 @@ jobs:
           pip install poetry
           make install
       - name: Run Tests
-        run: make tests
+        run: |
+          make lint
+          make tests
       - name: Run CodeCoverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:

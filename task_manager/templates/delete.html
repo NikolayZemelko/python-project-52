@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h1 class="my-4">{{ title }}</h1>
+    <p>{{ warning_message }} <b>{% block object %}{% endblock %}</b>?</p>
+    <form method="post">
+        {% csrf_token %}
+        {% trans "Yes, delete" as Button %}
+        {% bootstrap_button Button button_type="submit" button_class="btn btn-danger" %}
+    </form>
+{% endblock %}

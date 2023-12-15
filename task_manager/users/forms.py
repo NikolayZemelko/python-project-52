@@ -1,23 +1,25 @@
-from .models import TaskUser
-from ..meta import get_meta
-from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.utils.translation import gettext_lazy as _
+
+from .models import TaskUser
 
 
 class SignupForm(UserCreationForm):
-
     password1 = forms.CharField(
-        label=get_meta().get('Users').get('Password'),
+        label=_('Password'),
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
-        help_text=get_meta().get('Users').get('Pass1HelpText'),
+        help_text=_('Your password must contain '
+                    'at least 3 characters.'),
     )
 
     password2 = forms.CharField(
-        label=get_meta().get('Users').get('PasswordApproval'),
+        label=_('Password confirmation'),
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
-        help_text=get_meta().get('Users').get('PasswordConfReq'),
+        help_text=_('Enter the same password as before, '
+                    'for verification.'),
     )
 
     class Meta(UserCreationForm.Meta):
@@ -26,12 +28,14 @@ class SignupForm(UserCreationForm):
                   'password1', 'password2']
 
         labels = {
-            'first_name': get_meta().get('Users').get('FirstName'),
-            'last_name': get_meta().get('Users').get('LastName'),
-            'username': get_meta().get('Users').get('UserName'),
+            'first_name': _('Firstname'),
+            'last_name': _('Lastname'),
+            'username': _('Username'),
         }
 
         help_texts = {
-            'username': get_meta().get('Users').get('UserNameReq'),
-            'password2': get_meta().get('Users').get('PasswordConfReq')
+            'username': _('Required. 150 characters or fewer. '
+                          'Letters, digits and @/./+/-/_ only.'),
+            'password2': _('Enter the same password as before, '
+                           'for verification.')
         }

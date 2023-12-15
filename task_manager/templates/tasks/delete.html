@@ -1,11 +1,2 @@
-{% extends 'index.html' %}
-{% load i18n %}
-{% load django_bootstrap5 %}
-{% block content %}
-    <h1 class="my-4">{{ meta.Tasks.DeleteTask }}</h1>
-    <p>{{ meta.Main.DeletingApproving }} {{ task.task_name }}?</p>
-    <form method="post">
-        {% csrf_token %}
-        {% bootstrap_button meta.Main.DeleteButton button_type="submit" button_class="btn btn-danger" %}
-    </form>
-{% endblock %}
+{% extends "delete.html" %}
+{% block object %}{{ task.task_name }}{% endblock %}
