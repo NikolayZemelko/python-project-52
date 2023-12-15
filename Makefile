@@ -8,7 +8,7 @@ lint:
 	$(POETRY) flake8 .
 
 shell:
-	shell_plus --ipython --print-sql
+	$(MANAGE) shell_plus --ipython --print-sql
 
 test-coverage:
 	$(POETRY) coverage run manage.py test
