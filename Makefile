@@ -1,18 +1,18 @@
-MANAGE := poetry run python3 manage.py
+MANAGE := python3 manage.py
 POETRY := poetry run
 
 install:
 	poetry install
 
 lint:
-	$(POETRY) flake8 ./task_manager
+	flake8 ./task_manager
 
 shell:
-	$(MANAGE) shell_plus --ipython --print-sql
+	shell_plus --ipython --print-sql
 
 test-coverage:
-	$(POETRY) coverage run manage.py test
-	$(POETRY) coverage xml --include=task_manager/* --omit=settings.py
+	coverage run manage.py test
+	coverage xml --include=task_manager/* --omit=settings.py
 
 tests:
 	$(MANAGE) test
@@ -28,4 +28,9 @@ migrate:
 
 PORT ?= 8000
 start:
-	$(POETRY) gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
+	gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
+
+docker-start:
+	$(POETRY) pip freeze > requirements.txt
+	docker-compose build --no-cache
+	docker-compose up
